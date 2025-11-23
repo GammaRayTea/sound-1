@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://bo1hyllxfs6ws"]
+
+[ext_resource type="Script" uid="uid://b7yl8sr5c7nvi" path="res://objects/shapes/block/color_block.gd" id="1_fsxc1"]
+
+[sub_resource type="Gradient" id="Gradient_fsxc1"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_0c2wc"]
+gradient = SubResource("Gradient_fsxc1")
+
+[node name="Block" type="StaticBody2D"]
+script = ExtResource("1_fsxc1")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(0, 0, 0, 20, 20, 20, 20, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("GradientTexture2D_0c2wc")

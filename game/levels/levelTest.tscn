@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://crifaav7eticl"]
+
+[ext_resource type="PackedScene" uid="uid://cmx4vxxxfljwh" path="res://game/levels/levelBase.tscn" id="1_nakwo"]
+
+[node name="LevelBase" instance=ExtResource("1_nakwo")]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." index="0"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0"]
