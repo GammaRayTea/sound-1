@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://bo1hyllxfs6ws"]
+
+[ext_resource type="Script" uid="uid://b7yl8sr5c7nvi" path="res://objects/shapes/block/color_block.gd" id="1_fsxc1"]
+
+[node name="Block" type="StaticBody2D"]
+rotation = 81.245125
+script = ExtResource("1_fsxc1")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(0, 0, 0, 20, 20, 20, 20, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]

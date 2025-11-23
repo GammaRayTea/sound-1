@@ -3,15 +3,21 @@
 [ext_resource type="Script" uid="uid://b7yl8sr5c7nvi" path="res://objects/shapes/block/color_block.gd" id="1_fsxc1"]
 
 [sub_resource type="Gradient" id="Gradient_fsxc1"]
+colors = PackedColorArray(0, 0, 0, 1, 0.9248079, 0.75431705, 0.5817844, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_0c2wc"]
 gradient = SubResource("Gradient_fsxc1")
+fill_from = Vector2(0, 1)
+fill_to = Vector2(0, 0)
 
 [node name="Block" type="StaticBody2D"]
 script = ExtResource("1_fsxc1")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(0, 0, 0, 20, 20, 20, 20, 0)
+polygon = PackedVector2Array(0, 0, 100, 0, 100, 100, 0, 100)
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Polygon2D" type="Polygon2D" parent="."]
+texture_repeat = 1
 texture = SubResource("GradientTexture2D_0c2wc")
+polygon = PackedVector2Array(0, 0, 100, 0, 100, 100, 0, 100)
+uv = PackedVector2Array(0, 0, 63.34349, 0.7513168, 63.708958, 63.922268, 0.0778085, 64.101746)

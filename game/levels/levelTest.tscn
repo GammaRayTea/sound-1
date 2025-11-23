@@ -1,9 +1,19 @@
-[gd_scene load_steps=2 format=3 uid="uid://crifaav7eticl"]
+[gd_scene load_steps=3 format=3 uid="uid://crifaav7eticl"]
 
 [ext_resource type="PackedScene" uid="uid://cmx4vxxxfljwh" path="res://game/levels/levelBase.tscn" id="1_nakwo"]
+[ext_resource type="PackedScene" uid="uid://bo1hyllxfs6ws" path="res://objects/shapes/block/block.tscn" id="2_xiv44"]
 
 [node name="LevelBase" instance=ExtResource("1_nakwo")]
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." index="0"]
+[node name="Blocks" type="Node" parent="." index="0"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0"]
+[node name="Block" parent="Blocks" index="0" instance=ExtResource("2_xiv44")]
+position = Vector2(0, 984)
+
+[node name="CollisionPolygon2D" parent="Blocks/Block" index="0"]
+polygon = PackedVector2Array(0, -328, 2824, -328, 2824, 96, 0, 96)
+
+[node name="Polygon2D" parent="Blocks/Block" index="1"]
+polygon = PackedVector2Array(0, -328, 2824, -328, 2824, 96, 0, 96)
+
+[editable path="Blocks/Block"]
