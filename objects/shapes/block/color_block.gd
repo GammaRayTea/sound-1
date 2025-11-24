@@ -1,5 +1,5 @@
 @tool 
-class_name ColorBlock extends Node2D
+class_name ColorBlock extends StaticBody2D
 
 @onready var collisionShapePoints:PackedVector2Array = $CollisionPolygon2D.polygon.duplicate()
 @onready var spriteShapePoints = $Polygon2D.polygon.duplicate()

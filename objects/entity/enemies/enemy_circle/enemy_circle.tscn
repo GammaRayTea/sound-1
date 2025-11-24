@@ -1,0 +1,102 @@
+[gd_scene load_steps=13 format=3 uid="uid://cbkm4kty504gp"]
+
+[ext_resource type="PackedScene" uid="uid://cs4dhb3ig4n2h" path="res://objects/entity/entitiy.tscn" id="1_xvhyk"]
+[ext_resource type="Script" uid="uid://boj831pk0thib" path="res://objects/entity/enemies/enemy_circle/enemy_circle.gd" id="2_1mdns"]
+
+[sub_resource type="Gradient" id="Gradient_as4br"]
+colors = PackedColorArray(0.92197675, 0.26642892, 0.108205415, 1, 0.42607912, 0.9999998, 0.60218334, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_rkfij"]
+gradient = SubResource("Gradient_as4br")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="SkeletonModification2DLookAt" id="SkeletonModification2DLookAt_ouxdk"]
+resource_local_to_scene = true
+bone_index = 0
+bone2d_node = NodePath("Bone-0")
+target_nodepath = NodePath("Bone-4")
+editor/draw_gizmo = false
+
+[sub_resource type="SkeletonModification2DLookAt" id="SkeletonModification2DLookAt_vv1vl"]
+resource_local_to_scene = true
+bone_index = 1
+bone2d_node = NodePath("Bone-1")
+target_nodepath = NodePath("Bone-2")
+editor/draw_gizmo = false
+
+[sub_resource type="SkeletonModification2DLookAt" id="SkeletonModification2DLookAt_630bn"]
+resource_local_to_scene = true
+bone_index = 2
+bone2d_node = NodePath("Bone-2")
+target_nodepath = NodePath("Bone-1")
+editor/draw_gizmo = false
+
+[sub_resource type="SkeletonModification2DLookAt" id="SkeletonModification2DLookAt_ro2io"]
+resource_local_to_scene = true
+bone_index = 3
+bone2d_node = NodePath("Bone-3")
+target_nodepath = NodePath("Bone-2")
+editor/draw_gizmo = false
+
+[sub_resource type="SkeletonModification2DLookAt" id="SkeletonModification2DLookAt_i5n3t"]
+resource_local_to_scene = true
+bone_index = 4
+bone2d_node = NodePath("Bone-4")
+target_nodepath = NodePath("Bone-2")
+editor/draw_gizmo = false
+
+[sub_resource type="SkeletonModification2DLookAt" id="SkeletonModification2DLookAt_iiyi3"]
+resource_local_to_scene = true
+bone_index = 5
+bone2d_node = NodePath("Bone-5")
+target_nodepath = NodePath("Bone-4")
+editor/draw_gizmo = false
+
+[sub_resource type="SkeletonModificationStack2D" id="SkeletonModificationStack2D_uxdfs"]
+resource_local_to_scene = true
+enabled = true
+modification_count = 6
+modifications/0 = SubResource("SkeletonModification2DLookAt_ouxdk")
+modifications/1 = SubResource("SkeletonModification2DLookAt_vv1vl")
+modifications/2 = SubResource("SkeletonModification2DLookAt_630bn")
+modifications/3 = SubResource("SkeletonModification2DLookAt_ro2io")
+modifications/4 = SubResource("SkeletonModification2DLookAt_i5n3t")
+modifications/5 = SubResource("SkeletonModification2DLookAt_iiyi3")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_044h5"]
+resource_local_to_scene = true
+size = Vector2(36, 36)
+
+[node name="EnemyCircle" instance=ExtResource("1_xvhyk")]
+script = ExtResource("2_1mdns")
+
+[node name="Body" parent="." index="0"]
+texture = SubResource("GradientTexture2D_rkfij")
+
+[node name="Skeleton2D" parent="Body" index="0"]
+modification_stack = SubResource("SkeletonModificationStack2D_uxdfs")
+
+[node name="Bone-1" parent="Body/Skeleton2D" index="1"]
+scale = Vector2(0.99999976, 0.99999976)
+
+[node name="Bone-5" parent="Body/Skeleton2D" index="5"]
+scale = Vector2(0.99999994, 0.99999994)
+
+[node name="RectangleShape2D" parent="Body/Bone-0" index="0"]
+shape = SubResource("RectangleShape2D_044h5")
+
+[node name="RectangleShape2D" parent="Body/Bone-1" index="0"]
+shape = SubResource("RectangleShape2D_044h5")
+
+[node name="RectangleShape2D" parent="Body/Bone-2" index="0"]
+shape = SubResource("RectangleShape2D_044h5")
+
+[node name="RectangleShape2D" parent="Body/Bone-3" index="0"]
+shape = SubResource("RectangleShape2D_044h5")
+
+[node name="RectangleShape2D" parent="Body/Bone-4" index="0"]
+shape = SubResource("RectangleShape2D_044h5")
+
+[node name="RectangleShape2D" parent="Body/Bone-5" index="0"]
+shape = SubResource("RectangleShape2D_044h5")

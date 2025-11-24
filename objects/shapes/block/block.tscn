@@ -11,7 +11,9 @@ fill_from = Vector2(0, 1)
 fill_to = Vector2(0, 0)
 
 [node name="Block" type="StaticBody2D"]
+collision_layer = 5
 script = ExtResource("1_fsxc1")
+metadata/_edit_group_ = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(0, 0, 100, 0, 100, 100, 0, 100)

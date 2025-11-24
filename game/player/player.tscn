@@ -1,0 +1,146 @@
+[gd_scene load_steps=19 format=3 uid="uid://dve0hkl73nldr"]
+
+[ext_resource type="Script" uid="uid://cnnh17731tln3" path="res://game/player/player.gd" id="1_b2mth"]
+[ext_resource type="PackedScene" uid="uid://cs4dhb3ig4n2h" path="res://objects/entity/entitiy.tscn" id="2_a4w0n"]
+[ext_resource type="Script" uid="uid://hn8dasar2pll" path="res://game/player/background.gd" id="3_8soms"]
+
+[sub_resource type="SkeletonModification2DLookAt" id="SkeletonModification2DLookAt_b2mth"]
+resource_local_to_scene = true
+bone_index = 0
+bone2d_node = NodePath("Bone-0")
+target_nodepath = NodePath("Bone-4")
+editor/draw_gizmo = false
+
+[sub_resource type="SkeletonModification2DLookAt" id="SkeletonModification2DLookAt_8soms"]
+resource_local_to_scene = true
+bone_index = 1
+bone2d_node = NodePath("Bone-1")
+target_nodepath = NodePath("Bone-2")
+editor/draw_gizmo = false
+
+[sub_resource type="SkeletonModification2DLookAt" id="SkeletonModification2DLookAt_a4w0n"]
+resource_local_to_scene = true
+bone_index = 2
+bone2d_node = NodePath("Bone-2")
+target_nodepath = NodePath("Bone-1")
+editor/draw_gizmo = false
+
+[sub_resource type="SkeletonModification2DLookAt" id="SkeletonModification2DLookAt_5fytw"]
+resource_local_to_scene = true
+bone_index = 3
+bone2d_node = NodePath("Bone-3")
+target_nodepath = NodePath("Bone-2")
+editor/draw_gizmo = false
+
+[sub_resource type="SkeletonModification2DLookAt" id="SkeletonModification2DLookAt_4ste8"]
+resource_local_to_scene = true
+bone_index = 4
+bone2d_node = NodePath("Bone-4")
+target_nodepath = NodePath("Bone-2")
+editor/draw_gizmo = false
+
+[sub_resource type="SkeletonModification2DLookAt" id="SkeletonModification2DLookAt_anr75"]
+resource_local_to_scene = true
+bone_index = 5
+bone2d_node = NodePath("Bone-5")
+target_nodepath = NodePath("Bone-4")
+editor/draw_gizmo = false
+
+[sub_resource type="SkeletonModificationStack2D" id="SkeletonModificationStack2D_epvkq"]
+resource_local_to_scene = true
+enabled = true
+modification_count = 6
+modifications/0 = SubResource("SkeletonModification2DLookAt_b2mth")
+modifications/1 = SubResource("SkeletonModification2DLookAt_8soms")
+modifications/2 = SubResource("SkeletonModification2DLookAt_a4w0n")
+modifications/3 = SubResource("SkeletonModification2DLookAt_5fytw")
+modifications/4 = SubResource("SkeletonModification2DLookAt_4ste8")
+modifications/5 = SubResource("SkeletonModification2DLookAt_anr75")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5ghna"]
+resource_local_to_scene = true
+size = Vector2(36, 36)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j0mij"]
+resource_local_to_scene = true
+size = Vector2(36, 36)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gb4gm"]
+resource_local_to_scene = true
+size = Vector2(36, 36)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uv2nh"]
+resource_local_to_scene = true
+size = Vector2(36, 36)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n270p"]
+resource_local_to_scene = true
+size = Vector2(36, 36)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3ep63"]
+resource_local_to_scene = true
+size = Vector2(36, 36)
+
+[sub_resource type="Gradient" id="Gradient_8soms"]
+offsets = PackedFloat32Array(0.4234234, 1)
+colors = PackedColorArray(0.9380683, 0.6434071, 0.6458145, 1, 0.860237, 0.8031177, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_rqcxa"]
+gradient = SubResource("Gradient_8soms")
+fill = 1
+fill_from = Vector2(0.5, 1)
+fill_to = Vector2(0.516, 0)
+
+[node name="Player" node_paths=PackedStringArray("raycasts") instance=ExtResource("2_a4w0n")]
+script = ExtResource("1_b2mth")
+raycasts = [NodePath("Followers/RayCastR"), NodePath("Followers/RayCastL")]
+
+[node name="Skeleton2D" parent="Body" index="0"]
+modification_stack = SubResource("SkeletonModificationStack2D_epvkq")
+
+[node name="Bone-1" parent="Body/Skeleton2D" index="1"]
+scale = Vector2(0.99999976, 0.99999976)
+
+[node name="RectangleShape2D" parent="Body/Bone-0" index="0"]
+shape = SubResource("RectangleShape2D_5ghna")
+
+[node name="RectangleShape2D" parent="Body/Bone-1" index="0"]
+shape = SubResource("RectangleShape2D_j0mij")
+
+[node name="RectangleShape2D" parent="Body/Bone-2" index="0"]
+shape = SubResource("RectangleShape2D_gb4gm")
+
+[node name="RectangleShape2D" parent="Body/Bone-3" index="0"]
+shape = SubResource("RectangleShape2D_uv2nh")
+
+[node name="RectangleShape2D" parent="Body/Bone-4" index="0"]
+shape = SubResource("RectangleShape2D_n270p")
+
+[node name="RectangleShape2D" parent="Body/Bone-5" index="0"]
+shape = SubResource("RectangleShape2D_3ep63")
+
+[node name="Camera2D" type="Camera2D" parent="Followers" index="3"]
+position = Vector2(-88.90628, -96.962585)
+limit_left = 0
+position_smoothing_enabled = true
+position_smoothing_speed = 10.0
+script = ExtResource("3_8soms")
+
+[node name="BackgroundGradient" type="TextureRect" parent="Followers/Camera2D" index="0"]
+z_index = -1000
+z_as_relative = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1455.0
+offset_top = -860.5
+offset_right = 1455.0
+offset_bottom = 860.5
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(1455, 860.5)
+size_flags_horizontal = 4
+mouse_filter = 2
+texture = SubResource("GradientTexture2D_rqcxa")
