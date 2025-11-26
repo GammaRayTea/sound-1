@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=3 uid="uid://c44s8lam6fusd"]
+
+[ext_resource type="Script" uid="uid://birvu7cnd2f7u" path="res://game/world/logic/levelTransition/level_transition.gd" id="1_1e17m"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1e17m"]
+size = Vector2(64, 64)
+
+[sub_resource type="Gradient" id="Gradient_agwxy"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0.27676767, 1)
+colors = PackedColorArray(0.7025301, 0.8135959, 0.38342264, 0, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_1e17m"]
+gradient = SubResource("Gradient_agwxy")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g752d"]
+size = Vector2(28, 64)
+
+[node name="LevelTransition" type="Node2D" groups=["\"LevelTransition\""]]
+script = ExtResource("1_1e17m")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(32, 32)
+shape = SubResource("RectangleShape2D_1e17m")
+metadata/_edit_group_ = true
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = SubResource("GradientTexture2D_1e17m")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(78, 32)
+shape = SubResource("RectangleShape2D_g752d")
+debug_color = Color(0.88180524, 0.27955997, 0.48875248, 0.41960785)
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

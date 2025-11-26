@@ -57,6 +57,7 @@ _data = {
 }
 
 [node name="CanvasLayer" type="CanvasLayer"]
+layer = 100
 script = ExtResource("1_lkhna")
 
 [node name="ScreenTransition" type="Control" parent="."]

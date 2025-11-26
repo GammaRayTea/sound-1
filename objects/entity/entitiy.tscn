@@ -1,5 +1,6 @@
-[gd_scene load_steps=18 format=3 uid="uid://cs4dhb3ig4n2h"]
+[gd_scene load_steps=19 format=3 uid="uid://cs4dhb3ig4n2h"]
 
+[ext_resource type="Script" uid="uid://t5c4pqwpismk" path="res://objects/entity/enemies/hitbox.gd" id="2_8c6cj"]
 [ext_resource type="Script" uid="uid://kol6k5y6rb8a" path="res://addons/softbody2d/softbody2d.gd" id="2_y0q6s"]
 
 [sub_resource type="Gradient" id="Gradient_obar5"]
@@ -104,6 +105,7 @@ script = ExtResource("2_y0q6s")
 vertex_interval = 38
 radius = 36
 margin_offset_edge = 7.0
+collision_mask = 5
 metadata/_custom_type_script = "uid://kol6k5y6rb8a"
 
 [node name="Skeleton2D" type="Skeleton2D" parent="Body"]
@@ -126,7 +128,7 @@ metadata/_local_pose_override_enabled_ = true
 [node name="Bone-1" type="Bone2D" parent="Body/Skeleton2D"]
 position = Vector2(16.92389, 22.680635)
 rotation = 0.5536615
-scale = Vector2(0.9999998, 0.9999998)
+scale = Vector2(0.99999976, 0.99999976)
 rest = Transform2D(0.85060495, 0.52580523, -0.52580523, 0.85060495, 16.92389, 22.680635)
 auto_calculate_length_and_angle = false
 length = 38.0
@@ -191,6 +193,7 @@ metadata/_local_pose_override_enabled_ = true
 
 [node name="Bone-0" type="RigidBody2D" parent="Body"]
 position = Vector2(32.626408, 16.494295)
+collision_mask = 5
 mass = 0.1
 metadata/idx = 0
 metadata/bone_name = &"Bone-0"
@@ -231,6 +234,7 @@ softness = 60.0
 
 [node name="Bone-1" type="RigidBody2D" parent="Body"]
 position = Vector2(16.92389, 22.680635)
+collision_mask = 5
 mass = 0.1
 metadata/idx = 1
 metadata/bone_name = &"Bone-1"
@@ -271,6 +275,7 @@ softness = 60.0
 
 [node name="Bone-2" type="RigidBody2D" parent="Body"]
 position = Vector2(32, 32)
+collision_mask = 5
 mass = 0.1
 metadata/idx = 2
 metadata/bone_name = &"Bone-2"
@@ -327,6 +332,7 @@ softness = 60.0
 
 [node name="Bone-3" type="RigidBody2D" parent="Body"]
 position = Vector2(16.163776, 46.307335)
+collision_mask = 5
 mass = 0.1
 metadata/idx = 3
 metadata/bone_name = &"Bone-3"
@@ -367,6 +373,7 @@ softness = 60.0
 
 [node name="Bone-4" type="RigidBody2D" parent="Body"]
 position = Vector2(47.91714, 22.568398)
+collision_mask = 5
 mass = 0.1
 metadata/idx = 4
 metadata/bone_name = &"Bone-4"
@@ -407,6 +414,7 @@ softness = 60.0
 
 [node name="Bone-5" type="RigidBody2D" parent="Body"]
 position = Vector2(37.966236, 44.667267)
+collision_mask = 5
 mass = 0.1
 metadata/idx = 5
 metadata/bone_name = &"Bone-5"
@@ -460,6 +468,7 @@ target_position = Vector2(0, 35)
 position = Vector2(-32, -32)
 collision_layer = 2
 collision_mask = 2
+script = ExtResource("2_8c6cj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Followers/HurtBox"]
 position = Vector2(32, 32)

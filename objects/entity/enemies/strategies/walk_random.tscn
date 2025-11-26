@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cemg37o2np2vs"]
+
+[ext_resource type="Script" uid="uid://6yww66f2yryp" path="res://objects/entity/enemies/strategies/walk_random.gd" id="1_eaw33"]
+
+[node name="WalkRandom" type="Node"]
+script = ExtResource("1_eaw33")

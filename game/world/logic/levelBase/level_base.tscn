@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://dtpqi5l5rqwti"]
+
+[ext_resource type="Script" uid="uid://drmaxq4sr11x8" path="res://game/world/logic/levelBase/level_base.gd" id="1_rr100"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_qd3dg"]
+size = Vector2(64, 64)
+
+[node name="LevelBase" type="Node2D"]
+script = ExtResource("1_rr100")
+
+[node name="PlayerSpawn" type="Node2D" parent="."]
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="PlayerSpawn"]
+texture_filter = 3
+texture_repeat = 2
+texture = SubResource("PlaceholderTexture2D_qd3dg")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(-88.90628, -96.962585)
+limit_left = 0
+position_smoothing_enabled = true
+position_smoothing_speed = 10.0

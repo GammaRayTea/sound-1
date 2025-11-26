@@ -1,0 +1,44 @@
+[gd_scene load_steps=3 format=3 uid="uid://bpmvvu8wxhp50"]
+
+[ext_resource type="Script" uid="uid://c57hcwkeulsqd" path="res://game/player/hud.gd" id="1_2gth0"]
+[ext_resource type="Texture2D" uid="uid://jl83edvprdu3" path="res://game/player/bar.png" id="2_21r4q"]
+
+[node name="HUD" type="CanvasLayer" node_paths=PackedStringArray("healthBar")]
+script = ExtResource("1_2gth0")
+healthBar = NodePath("Control/HealthBar")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="GridContainer" type="GridContainer" parent="Control"]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+mouse_filter = 2
+
+[node name="HealthBar" type="TextureProgressBar" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.019000001
+anchor_top = 0.94400007
+anchor_right = 0.33100003
+anchor_bottom = 0.97300005
+offset_left = -0.48000336
+offset_top = -0.52008057
+offset_right = 0.47991943
+offset_bottom = 0.15991211
+max_value = 80.0
+value = 60.0
+nine_patch_stretch = true
+texture_under = ExtResource("2_21r4q")
+texture_progress = ExtResource("2_21r4q")
+tint_under = Color(0.9999996, 0.9587118, 0.9554731, 1)
+tint_progress = Color(0, 0.9688874, 0.8682261, 1)

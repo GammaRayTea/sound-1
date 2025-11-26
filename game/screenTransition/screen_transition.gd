@@ -15,4 +15,4 @@ func start(_transitionTime:float = 1) -> void:
 	transition_point_reached.emit()
 	animPlayer.play("fade_in",-1,1/(_transitionTime/2))
 	await animPlayer.animation_finished
-	queue_free()
+	

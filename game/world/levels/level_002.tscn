@@ -1,0 +1,75 @@
+[gd_scene load_steps=5 format=3 uid="uid://cxcxxywvbojxu"]
+
+[ext_resource type="PackedScene" uid="uid://dtpqi5l5rqwti" path="res://game/world/logic/levelBase/level_base.tscn" id="1_nta4l"]
+[ext_resource type="PackedScene" uid="uid://cbkm4kty504gp" path="res://objects/entity/enemies/enemy_circle/enemy_randomMover.tscn" id="2_j286f"]
+[ext_resource type="PackedScene" uid="uid://c44s8lam6fusd" path="res://game/world/logic/levelTransition/level_transition.tscn" id="3_tl0ye"]
+[ext_resource type="PackedScene" uid="uid://bo1hyllxfs6ws" path="res://objects/shapes/block/block.tscn" id="5_w4o7v"]
+
+[node name="LevelBase" instance=ExtResource("1_nta4l")]
+
+[node name="PlayerSpawn" parent="." index="0"]
+position = Vector2(1488, 96)
+
+[node name="EnemyCircle" parent="." index="1" instance=ExtResource("2_j286f")]
+position = Vector2(584, 584)
+
+[node name="Blocks" type="Node2D" parent="." index="2"]
+
+[node name="Block" parent="Blocks" index="0" instance=ExtResource("5_w4o7v")]
+position = Vector2(3, 655)
+
+[node name="CollisionPolygon2D" parent="Blocks/Block" index="0"]
+polygon = PackedVector2Array(-185, -5, 1289, 26, 1277, 473, -98, 470)
+
+[node name="Polygon2D" parent="Blocks/Block" index="1"]
+polygon = PackedVector2Array(-185, -5, 1289, 26, 1277, 473, -98, 470)
+
+[node name="Block2" parent="Blocks" index="1" instance=ExtResource("5_w4o7v")]
+position = Vector2(1284, 604)
+
+[node name="CollisionPolygon2D" parent="Blocks/Block2" index="0"]
+polygon = PackedVector2Array(-136, -112, 2254, 36, 2363, 496, -272, 568)
+
+[node name="Polygon2D" parent="Blocks/Block2" index="1"]
+polygon = PackedVector2Array(-136, -112, 2254, 36, 2363, 496, -272, 568)
+
+[node name="Block3" parent="Blocks" index="2" instance=ExtResource("5_w4o7v")]
+position = Vector2(1984, -31)
+
+[node name="CollisionPolygon2D" parent="Blocks/Block3" index="0"]
+polygon = PackedVector2Array(-280, 344, 0, 336, 0, 384, -224, 376)
+
+[node name="Polygon2D" parent="Blocks/Block3" index="1"]
+polygon = PackedVector2Array(-280, 344, 0, 336, 0, 384, -224, 376)
+
+[node name="Block4" parent="Blocks" index="3" instance=ExtResource("5_w4o7v")]
+position = Vector2(1637, -105)
+
+[node name="CollisionPolygon2D" parent="Blocks/Block4" index="0"]
+polygon = PackedVector2Array(-700, 190, -42, 301, -145, 367, -671, 302)
+
+[node name="Polygon2D" parent="Blocks/Block4" index="1"]
+polygon = PackedVector2Array(-700, 190, -42, 301, -145, 367, -671, 302)
+
+[node name="Block5" parent="Blocks" index="4" instance=ExtResource("5_w4o7v")]
+position = Vector2(-1013, -1381)
+
+[node name="CollisionPolygon2D" parent="Blocks/Block5" index="0"]
+polygon = PackedVector2Array(873, 1457, 1156, 1496, 1132, 1783, 916, 1778)
+
+[node name="Polygon2D" parent="Blocks/Block5" index="1"]
+polygon = PackedVector2Array(873, 1457, 1156, 1496, 1132, 1783, 916, 1778)
+
+[node name="Camera2D" parent="." index="3"]
+limit_right = 1942
+
+[node name="LevelTransition" parent="." index="4" instance=ExtResource("3_tl0ye")]
+position = Vector2(120, 392)
+scale = Vector2(-1.891705, 4.122118)
+levelPath = "res://game/world/levels/level_001.tscn"
+
+[editable path="Blocks/Block"]
+[editable path="Blocks/Block2"]
+[editable path="Blocks/Block3"]
+[editable path="Blocks/Block4"]
+[editable path="Blocks/Block5"]

@@ -1,0 +1,74 @@
+[gd_scene load_steps=5 format=3 uid="uid://dlg036xgpx6dw"]
+
+[ext_resource type="PackedScene" uid="uid://cmx4vxxxfljwh" path="res://game/world/logic/levelBase/level_base.tscn" id="1_xiv44"]
+[ext_resource type="PackedScene" uid="uid://bo1hyllxfs6ws" path="res://objects/shapes/block/block.tscn" id="2_uk6fu"]
+[ext_resource type="PackedScene" uid="uid://cbkm4kty504gp" path="res://objects/entity/enemies/enemy_circle/enemy_randomMover.tscn" id="3_uk6fu"]
+[ext_resource type="PackedScene" uid="uid://c44s8lam6fusd" path="res://game/world/logic/levelTransition/level_transition.tscn" id="4_a0yli"]
+
+[node name="LevelBase" instance=ExtResource("1_xiv44")]
+
+[node name="PlayerSpawn" parent="." index="0"]
+position = Vector2(344, 584)
+
+[node name="EnemyCircle" parent="." index="1" instance=ExtResource("3_uk6fu")]
+position = Vector2(584, 584)
+
+[node name="LevelTransition" parent="." index="2" instance=ExtResource("4_a0yli")]
+position = Vector2(2730, 966)
+scale = Vector2(1.7687633, 4.11795)
+
+[node name="Blocks" type="Node2D" parent="." index="3"]
+
+[node name="Block" parent="Blocks" index="0" instance=ExtResource("2_uk6fu")]
+position = Vector2(3, 655)
+
+[node name="CollisionPolygon2D" parent="Blocks/Block" index="0"]
+polygon = PackedVector2Array(-3, 1, 869, 1, 1277, 473, -3, 465)
+
+[node name="Polygon2D" parent="Blocks/Block" index="1"]
+polygon = PackedVector2Array(-3, 1, 869, 1, 1277, 473, -3, 465)
+
+[node name="Block2" parent="Blocks" index="1" instance=ExtResource("2_uk6fu")]
+position = Vector2(1112, 1160)
+
+[node name="CollisionPolygon2D" parent="Blocks/Block2" index="0"]
+polygon = PackedVector2Array(-136, -112, 2254, 36, 2363, 496, -272, 568)
+
+[node name="Polygon2D" parent="Blocks/Block2" index="1"]
+polygon = PackedVector2Array(-136, -112, 2254, 36, 2363, 496, -272, 568)
+
+[node name="Block3" parent="Blocks" index="2" instance=ExtResource("2_uk6fu")]
+position = Vector2(2640, 640)
+
+[node name="CollisionPolygon2D" parent="Blocks/Block3" index="0"]
+polygon = PackedVector2Array(-280, 344, 0, 336, 0, 384, -224, 376)
+
+[node name="Polygon2D" parent="Blocks/Block3" index="1"]
+polygon = PackedVector2Array(-280, 344, 0, 336, 0, 384, -224, 376)
+
+[node name="Block4" parent="Blocks" index="3" instance=ExtResource("2_uk6fu")]
+position = Vector2(3426, 557)
+
+[node name="CollisionPolygon2D" parent="Blocks/Block4" index="0"]
+polygon = PackedVector2Array(-704, 120, -72, 128, 0, 384, -696, 416)
+
+[node name="Polygon2D" parent="Blocks/Block4" index="1"]
+polygon = PackedVector2Array(-704, 120, -72, 128, 0, 384, -696, 416)
+
+[node name="Block5" parent="Blocks" index="4" instance=ExtResource("2_uk6fu")]
+position = Vector2(-1256, 176)
+
+[node name="CollisionPolygon2D" parent="Blocks/Block5" index="0"]
+polygon = PackedVector2Array(-3, 1, 1256, -24, 1256, 1760, 56, 1776)
+
+[node name="Polygon2D" parent="Blocks/Block5" index="1"]
+polygon = PackedVector2Array(-3, 1, 1256, -24, 1256, 1760, 56, 1776)
+
+[node name="Camera2D" parent="." index="4"]
+limit_right = 2818
+
+[editable path="Blocks/Block"]
+[editable path="Blocks/Block2"]
+[editable path="Blocks/Block3"]
+[editable path="Blocks/Block4"]
+[editable path="Blocks/Block5"]
