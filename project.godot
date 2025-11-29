@@ -8,6 +8,10 @@
 
 config_version=5
 
+[Fmod]
+
+General/banks_path="res://fmodSource/music/Build/Desktop"
+
 [application]
 
 config/name="Sound1"
@@ -31,8 +35,8 @@ enabled=PackedStringArray("res://addons/fmod/plugin.cfg", "res://addons/softbody
 
 [global_group]
 
-"\"LevelTransition\""=""
 Game=""
+MusicPlayer=""
 
 [input]
 

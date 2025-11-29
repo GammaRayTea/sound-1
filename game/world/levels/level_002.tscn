@@ -5,15 +5,15 @@
 [ext_resource type="PackedScene" uid="uid://c44s8lam6fusd" path="res://game/world/logic/levelTransition/level_transition.tscn" id="3_tl0ye"]
 [ext_resource type="PackedScene" uid="uid://bo1hyllxfs6ws" path="res://objects/shapes/block/block.tscn" id="5_w4o7v"]
 
-[node name="LevelBase" instance=ExtResource("1_nta4l")]
+[node name="level_002" node_paths=PackedStringArray("playerSpawn", "transitions") instance=ExtResource("1_nta4l")]
+playerSpawn = NodePath("")
+transitions = [NodePath("LevelTransition")]
 
-[node name="PlayerSpawn" parent="." index="0"]
-position = Vector2(1488, 96)
+[node name="Camera2D" parent="." index="0"]
+limit_right = 1942
 
 [node name="EnemyCircle" parent="." index="1" instance=ExtResource("2_j286f")]
 position = Vector2(584, 584)
-
-[node name="Blocks" type="Node2D" parent="." index="2"]
 
 [node name="Block" parent="Blocks" index="0" instance=ExtResource("5_w4o7v")]
 position = Vector2(3, 655)
@@ -60,12 +60,10 @@ polygon = PackedVector2Array(873, 1457, 1156, 1496, 1132, 1783, 916, 1778)
 [node name="Polygon2D" parent="Blocks/Block5" index="1"]
 polygon = PackedVector2Array(873, 1457, 1156, 1496, 1132, 1783, 916, 1778)
 
-[node name="Camera2D" parent="." index="3"]
-limit_right = 1942
-
-[node name="LevelTransition" parent="." index="4" instance=ExtResource("3_tl0ye")]
+[node name="LevelTransition" parent="." index="3" instance=ExtResource("3_tl0ye")]
 position = Vector2(120, 392)
 scale = Vector2(-1.891705, 4.122118)
+id = "A"
 levelPath = "res://game/world/levels/level_001.tscn"
 
 [editable path="Blocks/Block"]

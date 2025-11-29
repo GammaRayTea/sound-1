@@ -1,16 +1,45 @@
-[gd_scene load_steps=5 format=3 uid="uid://cnnuacqogjgwe"]
+[gd_scene load_steps=6 format=3 uid="uid://cnnuacqogjgwe"]
 
 [ext_resource type="Script" uid="uid://rnydisjxqkx0" path="res://game/game.gd" id="1_bk3v5"]
 [ext_resource type="PackedScene" uid="uid://b5a6pwktt4o24" path="res://game/menu/menu.tscn" id="2_1r4le"]
-[ext_resource type="PackedScene" uid="uid://dlg036xgpx6dw" path="res://game/world/levels/level_001.tscn" id="2_h7iqs"]
+[ext_resource type="PackedScene" uid="uid://b6fhfrq7t1c63" path="res://game/world/levels/level_001.tscn" id="2_h7iqs"]
 [ext_resource type="PackedScene" uid="uid://dve0hkl73nldr" path="res://game/player/player.tscn" id="3_4fuuu"]
+[ext_resource type="Script" uid="uid://b07nr1savf82r" path="res://game/music_player.gd" id="5_dxrkv"]
 
 [node name="Game" type="Node2D" groups=["Game"]]
 script = ExtResource("1_bk3v5")
 startLevel = ExtResource("2_h7iqs")
 playerScene = ExtResource("3_4fuuu")
 
+[node name="FmodBankLoader" type="FmodBankLoader" parent="."]
+bank_paths = ["res://fmodSource/music/Build/Desktop/Master.bank", "res://fmodSource/music/Build/Desktop/Master.strings.bank", "res://fmodSource/music/Build/Desktop/Music.bank"]
+
 [node name="Menu" parent="." instance=ExtResource("2_1r4le")]
+
+[node name="MusicPlayer" type="FmodEventEmitter2D" parent="." groups=["MusicPlayer"]]
+event_name = "event:/DNB"
+event_guid = "{1991496a-89a9-4b51-a0f3-9e72361cd046}"
+fmod_parameters/fade_kick/id = 6031348425094247295
+fmod_parameters/fade_kick = 0
+fmod_parameters/fade_kick/variant_type = 2
+fmod_parameters/fade_drums/id = -2996163909411692024
+fmod_parameters/fade_drums = 0
+fmod_parameters/fade_drums/variant_type = 2
+fmod_parameters/fade_rhodes/id = -8382543537343521286
+fmod_parameters/fade_rhodes = 0
+fmod_parameters/fade_rhodes/variant_type = 2
+fmod_parameters/fade_pad/id = -2061354620757420916
+fmod_parameters/fade_pad = 0.0
+fmod_parameters/fade_pad/variant_type = 2
+fmod_parameters/fade_melody/id = -6806287297130661394
+fmod_parameters/fade_melody = 0
+fmod_parameters/fade_melody/variant_type = 2
+fmod_parameters/reverb_crossfade/id = 4815772075951245614
+fmod_parameters/reverb_crossfade = 1.0
+fmod_parameters/reverb_crossfade/variant_type = 3
+script = ExtResource("5_dxrkv")
+
+[node name="FmodListener2D" type="FmodListener2D" parent="."]
 
 [connection signal="pressed" from="Menu/CanvasLayer/Container/Start" to="." method="_on_start_pressed"]
 

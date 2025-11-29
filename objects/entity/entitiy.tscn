@@ -94,7 +94,7 @@ radius = 54.037025
 
 [node name="Entitiy" type="Node2D"]
 
-[node name="Body" type="Polygon2D" parent="."]
+[node name="Body" type="Polygon2D" parent="." node_paths=PackedStringArray("exclude_array")]
 texture = SubResource("GradientTexture2D_b2mth")
 skeleton = NodePath("Skeleton2D")
 polygon = PackedVector2Array(0, 64, 64, 64, 64, 0, 0, 0, 43.878624, 19, 21.939316, 19, 10.969658, 0, 54.848274, 0, 21.939308, 19, 10.969658, 38, 0, 38, 0, 0, 10.969658, 0, 54.848274, 38, 43.878624, 57, 21.939316, 57, 10.969658, 38, 21.939316, 19, 43.878624, 19, 21.939308, 57, 17.897858, 64, 0, 64, 0, 38, 10.969658, 38, 64, 38, 54.84828, 38, 43.878624, 19, 54.84828, 0, 64, 0, 64, 64, 47.920074, 64, 43.878624, 57, 54.84828, 38, 64, 38, 47.920074, 64, 17.897865, 64, 21.939316, 57, 43.878624, 57)
@@ -106,6 +106,7 @@ vertex_interval = 38
 radius = 36
 margin_offset_edge = 7.0
 collision_mask = 5
+exclude_array = [NodePath("Bone-0"), NodePath("Bone-1"), NodePath("Bone-2"), NodePath("Bone-3"), NodePath("Bone-4"), NodePath("Bone-5")]
 metadata/_custom_type_script = "uid://kol6k5y6rb8a"
 
 [node name="Skeleton2D" type="Skeleton2D" parent="Body"]

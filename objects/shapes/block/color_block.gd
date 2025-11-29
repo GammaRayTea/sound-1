@@ -1,4 +1,4 @@
-@tool 
+@tool
 class_name ColorBlock extends StaticBody2D
 
 @onready var collisionShapePoints:PackedVector2Array = $CollisionPolygon2D.polygon.duplicate()
@@ -7,7 +7,7 @@ class_name ColorBlock extends StaticBody2D
 func _ready() -> void:
 	pass
 	
-func _process(delta):
+func _process(_delta):
 	
 	if Engine.is_editor_hint():
 		
@@ -15,7 +15,7 @@ func _process(delta):
 			collisionShapePoints = $CollisionPolygon2D.polygon
 			$Polygon2D.polygon = collisionShapePoints
 			spriteShapePoints = $Polygon2D.polygon
-			update_gradient()
+
 			queue_redraw()
 
 		
@@ -23,17 +23,11 @@ func _process(delta):
 			spriteShapePoints = $Polygon2D.polygon
 			$CollisionPolygon2D.polygon = spriteShapePoints
 			collisionShapePoints = $CollisionPolygon2D.polygon
-			update_gradient()
+
 			queue_redraw()
 
 
 
-func update_gradient()->void :
-	print("a")
-	#var texture:GradientTexture2D = $Polygon2D.texture
-	#var polygonSize = get_polygon_size(spriteShapePoints)
-	#texture.width = polygonSize.x/100
-	#texture.height = polygonSize.y/100
 
 
 func get_pvector_extents(p:PackedVector2Array)->Vector4: 

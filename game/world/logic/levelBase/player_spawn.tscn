@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://b7xlq3qpk0tlm"]
+
+[ext_resource type="Script" uid="uid://dbkka0dtbyl1m" path="res://game/world/logic/levelBase/player_spawn.gd" id="1_r0u4y"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_d75r3"]
+load_path = "res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex"
+
+[node name="PlayerSpawn" type="Node2D"]
+script = ExtResource("1_r0u4y")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 2
+texture_repeat = 2
+texture = SubResource("CompressedTexture2D_d75r3")

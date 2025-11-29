@@ -1,8 +1,9 @@
-[gd_scene load_steps=21 format=3 uid="uid://dve0hkl73nldr"]
+[gd_scene load_steps=22 format=3 uid="uid://dve0hkl73nldr"]
 
 [ext_resource type="Script" uid="uid://cnnh17731tln3" path="res://game/player/player.gd" id="1_b2mth"]
 [ext_resource type="PackedScene" uid="uid://cs4dhb3ig4n2h" path="res://objects/entity/entitiy.tscn" id="2_a4w0n"]
-[ext_resource type="Script" uid="uid://hn8dasar2pll" path="res://game/player/background.gd" id="3_8soms"]
+[ext_resource type="Script" uid="uid://hn8dasar2pll" path="res://game/player/camera.gd" id="3_8soms"]
+[ext_resource type="Script" uid="uid://dbgj6oqedsmmf" path="res://game/player/background_gradient.gd" id="4_5fytw"]
 [ext_resource type="PackedScene" uid="uid://bpmvvu8wxhp50" path="res://game/player/hud.tscn" id="4_a4w0n"]
 
 [sub_resource type="SkeletonModification2DLookAt" id="SkeletonModification2DLookAt_b2mth"]
@@ -97,59 +98,69 @@ radius = 54.0
 
 [node name="Player" node_paths=PackedStringArray("raycasts", "camera") instance=ExtResource("2_a4w0n")]
 script = ExtResource("1_b2mth")
+JUMPFORCE = 800
 raycasts = [NodePath("Followers/RayCastR"), NodePath("Followers/RayCastL")]
 camera = NodePath("Followers/Camera2D")
 
 [node name="Body" parent="." index="0"]
+collision_layer = 1
 collision_mask = 1
 
 [node name="Skeleton2D" parent="Body" index="0"]
 modification_stack = SubResource("SkeletonModificationStack2D_epvkq")
 
 [node name="Bone-0" parent="Body" index="1"]
+collision_layer = 1
 collision_mask = 1
 
 [node name="RectangleShape2D" parent="Body/Bone-0" index="0"]
 shape = SubResource("RectangleShape2D_5ghna")
 
 [node name="Bone-1" parent="Body" index="2"]
+collision_layer = 1
 collision_mask = 1
 
 [node name="RectangleShape2D" parent="Body/Bone-1" index="0"]
 shape = SubResource("RectangleShape2D_j0mij")
 
 [node name="Bone-2" parent="Body" index="3"]
+collision_layer = 1
 collision_mask = 1
 
 [node name="RectangleShape2D" parent="Body/Bone-2" index="0"]
 shape = SubResource("RectangleShape2D_gb4gm")
 
 [node name="Bone-3" parent="Body" index="4"]
+collision_layer = 1
 collision_mask = 1
 
 [node name="RectangleShape2D" parent="Body/Bone-3" index="0"]
 shape = SubResource("RectangleShape2D_uv2nh")
 
 [node name="Bone-4" parent="Body" index="5"]
+collision_layer = 1
 collision_mask = 1
 
 [node name="RectangleShape2D" parent="Body/Bone-4" index="0"]
 shape = SubResource("RectangleShape2D_n270p")
 
 [node name="Bone-5" parent="Body" index="6"]
+collision_layer = 1
 collision_mask = 1
 
 [node name="RectangleShape2D" parent="Body/Bone-5" index="0"]
 shape = SubResource("RectangleShape2D_3ep63")
 
 [node name="Camera2D" type="Camera2D" parent="Followers" index="3"]
-position = Vector2(-88.90628, -96.962585)
 limit_left = 0
-position_smoothing_enabled = true
 position_smoothing_speed = 10.0
 script = ExtResource("3_8soms")
 
-[node name="BackgroundGradient" type="TextureRect" parent="Followers/Camera2D" index="0"]
+[node name="BackgroundGradient" type="CanvasLayer" parent="Followers/Camera2D" index="0"]
+layer = -10
+script = ExtResource("4_5fytw")
+
+[node name="BackgroundGradient" type="TextureRect" parent="Followers/Camera2D/BackgroundGradient" index="0"]
 z_index = -1000
 z_as_relative = false
 anchors_preset = 8

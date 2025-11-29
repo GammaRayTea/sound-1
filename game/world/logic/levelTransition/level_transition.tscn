@@ -1,6 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://c44s8lam6fusd"]
+[gd_scene load_steps=8 format=3 uid="uid://c44s8lam6fusd"]
 
 [ext_resource type="Script" uid="uid://birvu7cnd2f7u" path="res://game/world/logic/levelTransition/level_transition.gd" id="1_1e17m"]
+[ext_resource type="PackedScene" uid="uid://b7xlq3qpk0tlm" path="res://game/world/logic/levelBase/player_spawn.tscn" id="2_g752d"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wqhk0"]
+size = Vector2(64, 64)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1e17m"]
 size = Vector2(64, 64)
@@ -16,16 +20,30 @@ gradient = SubResource("Gradient_agwxy")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g752d"]
 size = Vector2(28, 64)
 
-[node name="LevelTransition" type="Node2D" groups=["\"LevelTransition\""]]
+[node name="LevelTransition" type="Node2D" node_paths=PackedStringArray("spawnPoint", "exitArea", "repeatPreventer") groups=["LevelTransition"]]
 script = ExtResource("1_1e17m")
+spawnPoint = NodePath("PlayerSpawn")
+exitArea = NodePath("ExitArea")
+repeatPreventer = NodePath("RepeatPreventer")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="RepeatPreventer" type="Area2D" parent="."]
 collision_layer = 0
 collision_mask = 8
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RepeatPreventer"]
+position = Vector2(32, 32)
+shape = SubResource("RectangleShape2D_wqhk0")
+debug_color = Color(0, 0, 0, 0.41960785)
+metadata/_edit_group_ = true
+
+[node name="ExitArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ExitArea"]
 position = Vector2(32, 32)
 shape = SubResource("RectangleShape2D_1e17m")
+debug_color = Color(0.79751134, 0.42343736, 1.92523e-07, 0.41960785)
 metadata/_edit_group_ = true
 
 [node name="TextureRect" type="TextureRect" parent="."]
@@ -42,4 +60,9 @@ position = Vector2(78, 32)
 shape = SubResource("RectangleShape2D_g752d")
 debug_color = Color(0.88180524, 0.27955997, 0.48875248, 0.41960785)
 
-[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[node name="PlayerSpawn" parent="." instance=ExtResource("2_g752d")]
+position = Vector2(32, 58)
+scale = Vector2(0.1, 0.1)
+
+[connection signal="area_exited" from="RepeatPreventer" to="." method="_on_repeat_preventer_area_exited"]
+[connection signal="area_entered" from="ExitArea" to="." method="_on_exit_area_entered"]

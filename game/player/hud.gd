@@ -1,4 +1,4 @@
-@tool
+
 extends CanvasLayer
 
 @export var healthBar:TextureProgressBar 

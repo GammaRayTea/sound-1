@@ -8,11 +8,14 @@ signal transition_point_reached
 func _ready() -> void:
 	print(get_children())
 	
-func start(_transitionTime:float = 1) -> void:
+func startTransition(_transitionTime:float = 1) -> void:
 
 	animPlayer.play("fade_out",-1,1/(_transitionTime/2))
 	await animPlayer.animation_finished
 	transition_point_reached.emit()
+
+func endTransition(_transitionTime:float = 1) -> void:
+
+
 	animPlayer.play("fade_in",-1,1/(_transitionTime/2))
 	await animPlayer.animation_finished
-	
