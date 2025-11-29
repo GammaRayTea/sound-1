@@ -3,6 +3,7 @@ class_name Level extends Node2D
 @onready var player:Player = get_tree().get_first_node_in_group("Game").player
 @export var playerSpawn:Node2D
 @export var transitions:Array[LevelTransition]
+@export var gradient:GradientTexture2D
 func set_spawn(_transitionId = null):
 	
 	if _transitionId:
@@ -15,6 +16,7 @@ func set_spawn(_transitionId = null):
 				player.respawn(playerSpawn.global_position)
 	
 	player.respawn(playerSpawn.global_position)
+	get_tree().call_group("PlayerDependent","on_player_ready")
 
 func _ready() -> void:
 	apply_cam_limits()

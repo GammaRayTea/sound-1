@@ -3,9 +3,11 @@ class_name Game extends Node2D
 @export var startLevel:PackedScene
 @onready var startLevelPath = startLevel.resource_path
 @export var playerScene:PackedScene
+@export var globalMusicPlayer:FmodEventEmitter2D
 var screenTransition:ScreenTransisiton
 var player:Player
 var checkPoint
+var level
 func _ready() -> void:
 	screenTransition = preload("res://game/screenTransition/screen_transition.tscn").instantiate()
 	add_child(screenTransition)
@@ -28,13 +30,18 @@ func on_level_transition(_packedLevelPath:String,_id = null, _previousLevel:Leve
 		player =  playerScene.instantiate()
 		add_child(player)
 		$Menu.queue_free()
-		$MusicPlayer.play()
-		$MusicPlayer.enable_track($MusicPlayer.tracks.pad)
-		
+		globalMusicPlayer.play()
+		globalMusicPlayer.enable_track(globalMusicPlayer.tracks.pad)
 	
-	var level = packedLevel.instantiate()
+	
+	level = packedLevel.instantiate()
 	add_child(level)
 
 	level.set_spawn(_id)
 	screenTransition.endTransition(3)
-	
+
+func set_positional(state:bool) -> void:
+	if state:
+		globalMusicPlayer.volume = 0
+	else:
+		globalMusicPlayer.volume = 1

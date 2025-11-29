@@ -6,15 +6,18 @@
 [ext_resource type="PackedScene" uid="uid://dve0hkl73nldr" path="res://game/player/player.tscn" id="3_4fuuu"]
 [ext_resource type="Script" uid="uid://b07nr1savf82r" path="res://game/music_player.gd" id="5_dxrkv"]
 
-[node name="Game" type="Node2D" groups=["Game"]]
+[node name="Game" type="Node2D" node_paths=PackedStringArray("globalMusicPlayer") groups=["Game"]]
 script = ExtResource("1_bk3v5")
 startLevel = ExtResource("2_h7iqs")
 playerScene = ExtResource("3_4fuuu")
+globalMusicPlayer = NodePath("MusicPlayer")
 
 [node name="FmodBankLoader" type="FmodBankLoader" parent="."]
 bank_paths = ["res://fmodSource/music/Build/Desktop/Master.bank", "res://fmodSource/music/Build/Desktop/Master.strings.bank", "res://fmodSource/music/Build/Desktop/Music.bank"]
 
 [node name="Menu" parent="." instance=ExtResource("2_1r4le")]
+
+[node name="GlobalListener" type="FmodListener2D" parent="."]
 
 [node name="MusicPlayer" type="FmodEventEmitter2D" parent="." groups=["MusicPlayer"]]
 event_name = "event:/DNB"
@@ -35,11 +38,10 @@ fmod_parameters/fade_melody/id = -6806287297130661394
 fmod_parameters/fade_melody = 0
 fmod_parameters/fade_melody/variant_type = 2
 fmod_parameters/reverb_crossfade/id = 4815772075951245614
-fmod_parameters/reverb_crossfade = 1.0
+fmod_parameters/reverb_crossfade = 0.1
 fmod_parameters/reverb_crossfade/variant_type = 3
+position = Vector2(0, 570)
 script = ExtResource("5_dxrkv")
-
-[node name="FmodListener2D" type="FmodListener2D" parent="."]
 
 [connection signal="pressed" from="Menu/CanvasLayer/Container/Start" to="." method="_on_start_pressed"]
 

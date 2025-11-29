@@ -1,0 +1,36 @@
+[gd_scene load_steps=3 format=3 uid="uid://bfpjsh04qym3c"]
+
+[ext_resource type="Script" uid="uid://ccwg7q1t518v0" path="res://objects/positional_music_event/positional_music_event.gd" id="1_8joof"]
+[ext_resource type="Script" uid="uid://bjorc740g35od" path="res://objects/positional_music_event/positional_music_player.gd" id="2_4ox4l"]
+
+[node name="PositionalMusicEvent" type="Node2D" node_paths=PackedStringArray("musicPlayer", "listener") groups=["PlayerDependent"]]
+process_mode = 4
+script = ExtResource("1_8joof")
+musicPlayer = NodePath("PositionalMusicPlayer")
+listener = NodePath("FmodListener")
+
+[node name="FmodListener" type="FmodListener2D" parent="."]
+
+[node name="PositionalMusicPlayer" type="FmodEventEmitter2D" parent="."]
+event_name = "event:/DNB"
+event_guid = "{1991496a-89a9-4b51-a0f3-9e72361cd046}"
+attached = false
+fmod_parameters/fade_kick/id = 6031348425094247295
+fmod_parameters/fade_kick = 0.0
+fmod_parameters/fade_kick/variant_type = 2
+fmod_parameters/fade_drums/id = -2996163909411692024
+fmod_parameters/fade_drums = 0.0
+fmod_parameters/fade_drums/variant_type = 2
+fmod_parameters/fade_rhodes/id = -8382543537343521286
+fmod_parameters/fade_rhodes = 1
+fmod_parameters/fade_rhodes/variant_type = 2
+fmod_parameters/fade_pad/id = -2061354620757420916
+fmod_parameters/fade_pad = 0.0
+fmod_parameters/fade_pad/variant_type = 2
+fmod_parameters/reverb_crossfade/id = 4815772075951245614
+fmod_parameters/reverb_crossfade = 0.1
+fmod_parameters/reverb_crossfade/variant_type = 3
+fmod_parameters/fade_melody/id = -6806287297130661394
+fmod_parameters/fade_melody = 0.0
+fmod_parameters/fade_melody/variant_type = 2
+script = ExtResource("2_4ox4l")

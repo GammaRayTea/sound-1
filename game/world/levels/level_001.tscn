@@ -1,10 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://b6fhfrq7t1c63"]
+[gd_scene load_steps=8 format=3 uid="uid://b6fhfrq7t1c63"]
 
 [ext_resource type="PackedScene" uid="uid://dtpqi5l5rqwti" path="res://game/world/logic/levelBase/level_base.tscn" id="1_pwcrd"]
 [ext_resource type="PackedScene" uid="uid://bo1hyllxfs6ws" path="res://objects/shapes/block/block.tscn" id="2_auyno"]
 [ext_resource type="Texture2D" uid="uid://cbyg84pvhfx2w" path="res://objects/shapes/block/textures/block_mountain.tres" id="3_atjrp"]
 [ext_resource type="PackedScene" uid="uid://c44s8lam6fusd" path="res://game/world/logic/levelTransition/level_transition.tscn" id="3_sxj1f"]
 [ext_resource type="PackedScene" uid="uid://b7xlq3qpk0tlm" path="res://game/world/logic/levelBase/player_spawn.tscn" id="5_auyno"]
+[ext_resource type="PackedScene" uid="uid://bfpjsh04qym3c" path="res://objects/positional_music_event/positional_music_event.tscn" id="6_sxj1f"]
+[ext_resource type="Script" uid="uid://dhjq0ea6vvgxc" path="res://objects/positional_music_event/behaviours/distant_to_close.gd" id="7_4ulbk"]
 
 [node name="level_001" node_paths=PackedStringArray("playerSpawn", "transitions") instance=ExtResource("1_pwcrd")]
 playerSpawn = NodePath("PlayerSpawn")
@@ -162,6 +164,17 @@ levelPath = "res://game/world/levels/level_002.tscn"
 [node name="PlayerSpawn" parent="." index="3" instance=ExtResource("5_auyno")]
 position = Vector2(570, -32489)
 
+[node name="PositionalMusicEvent" parent="." index="4" instance=ExtResource("6_sxj1f")]
+position = Vector2(3346, -2396)
+script = ExtResource("7_4ulbk")
+
+[node name="FmodListener" parent="PositionalMusicEvent" index="0"]
+position = Vector2(0, -175)
+
+[node name="PositionalMusicPlayer" parent="PositionalMusicEvent" index="1"]
+fmod_parameters/fade_rhodes = 0.0
+fmod_parameters/fade_pad = 1
+
 [editable path="Blocks/Block"]
 [editable path="Blocks/Block2"]
 [editable path="Blocks/Block3"]
@@ -176,3 +189,4 @@ position = Vector2(570, -32489)
 [editable path="Blocks/Block12"]
 [editable path="Blocks/Block13"]
 [editable path="Blocks/Block14"]
+[editable path="PositionalMusicEvent"]

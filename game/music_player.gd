@@ -1,12 +1,13 @@
 class_name MusicPlayer extends FmodEventEmitter2D
 
-const tracks:Dictionary = {
+var tracks:Dictionary = {
 	kick = "fmod_parameters/fade_kick",
 	drums = "fmod_parameters/fade_drums",
 	rhodes = "fmod_parameters/fade_rhodes",
 	pad = "fmod_parameters/fade_pad",
 	melody = "fmod_parameters/fade_melody"
 }
+var positional = false
 func enable_track(key:String)->void:
 	self[key] = 1
 
