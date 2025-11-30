@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="DataFile" id="{7e649b14-71ce-4c54-9c86-97f3c9fcd09b}">
+		<property name="assetPath">
+			<value>Music.bank</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{de3c3f1e-0cea-4544-9c98-f01c9e457095}</destination>
+		</relationship>
+	</object>
+</objects>

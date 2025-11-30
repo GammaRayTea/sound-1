@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="AudioFile" id="{35e3232e-dd90-438c-aa69-66fc83be4b57}">
+		<property name="assetPath">
+			<value>drumAndBass_pad.wav</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>56.296291666666669</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{de3c3f1e-0cea-4544-9c98-f01c9e457095}</destination>
+		</relationship>
+	</object>
+</objects>

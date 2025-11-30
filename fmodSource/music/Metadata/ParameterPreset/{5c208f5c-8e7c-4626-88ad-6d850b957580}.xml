@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="ParameterPreset" id="{5c208f5c-8e7c-4626-88ad-6d850b957580}">
+		<property name="name">
+			<value>fade_pad</value>
+		</property>
+		<relationship name="folder">
+			<destination>{5543889e-ea3b-4507-935a-847a7e7224b5}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{be58c35d-ad0c-459f-afea-ce46867749c8}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{be58c35d-ad0c-459f-afea-ce46867749c8}">
+		<property name="parameterType">
+			<value>1</value>
+		</property>
+		<property name="maximum">
+			<value>2</value>
+		</property>
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+	</object>
+</objects>

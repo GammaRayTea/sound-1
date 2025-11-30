@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="ParameterPreset" id="{3862120d-3dc2-4844-9b24-32bc61b3648e}">
+		<property name="name">
+			<value>fade_melody</value>
+		</property>
+		<relationship name="folder">
+			<destination>{5543889e-ea3b-4507-935a-847a7e7224b5}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{392f6824-136d-479e-9380-86f39c02b185}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{392f6824-136d-479e-9380-86f39c02b185}">
+		<property name="parameterType">
+			<value>1</value>
+		</property>
+		<property name="maximum">
+			<value>2</value>
+		</property>
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+	</object>
+</objects>

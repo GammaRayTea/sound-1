@@ -3,8 +3,3 @@
 /android/
 addons/fmod/
 
-fmodSource/*
-!fmodSource/music/
-
-fmodSource/music/*
-!fmodSource/music/Build/

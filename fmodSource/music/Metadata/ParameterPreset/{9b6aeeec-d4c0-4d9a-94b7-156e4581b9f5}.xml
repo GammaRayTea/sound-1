@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="ParameterPreset" id="{9b6aeeec-d4c0-4d9a-94b7-156e4581b9f5}">
+		<property name="name">
+			<value>reverb_crossfade</value>
+		</property>
+		<relationship name="folder">
+			<destination>{5543889e-ea3b-4507-935a-847a7e7224b5}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{2b07a450-c9bb-46c5-be71-d72714d25281}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{2b07a450-c9bb-46c5-be71-d72714d25281}">
+		<property name="initialValue">
+			<value>1</value>
+		</property>
+	</object>
+</objects>
