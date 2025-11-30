@@ -18,8 +18,10 @@ func _ready() -> void:
 func _on_exit_area_entered(_area: Area2D) -> void:
 	
 	if !just_spawned:
+		get_tree().call_group("PlayerDependent","position_reached")
 		exitArea.get_child(0).set_deferred("disabled",true)
 		transition.emit(levelPath, id, get_parent())
+		
 		print("transitioning...")
 
 

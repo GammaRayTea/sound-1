@@ -167,13 +167,10 @@ position = Vector2(570, -32489)
 [node name="PositionalMusicEvent" parent="." index="4" instance=ExtResource("6_sxj1f")]
 position = Vector2(3346, -2396)
 script = ExtResource("7_4ulbk")
+oneShot = true
 
-[node name="FmodListener" parent="PositionalMusicEvent" index="0"]
-position = Vector2(0, -175)
-
-[node name="PositionalMusicPlayer" parent="PositionalMusicEvent" index="1"]
-fmod_parameters/fade_rhodes = 0.0
-fmod_parameters/fade_pad = 1
+[node name="ListenerStart" parent="PositionalMusicEvent" index="0"]
+position = Vector2(3454, -52)
 
 [editable path="Blocks/Block"]
 [editable path="Blocks/Block2"]

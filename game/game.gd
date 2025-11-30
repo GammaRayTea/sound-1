@@ -3,7 +3,10 @@ class_name Game extends Node2D
 @export var startLevel:PackedScene
 @onready var startLevelPath = startLevel.resource_path
 @export var playerScene:PackedScene
+
 @export var globalMusicPlayer:FmodEventEmitter2D
+@export var globalListener:FmodListener2D
+
 var screenTransition:ScreenTransisiton
 var player:Player
 var checkPoint
@@ -42,6 +45,7 @@ func on_level_transition(_packedLevelPath:String,_id = null, _previousLevel:Leve
 
 func set_positional(state:bool) -> void:
 	if state:
-		globalMusicPlayer.volume = 0
+		globalMusicPlayer.attached = true
 	else:
-		globalMusicPlayer.volume = 1
+		globalMusicPlayer.attached = false
+		

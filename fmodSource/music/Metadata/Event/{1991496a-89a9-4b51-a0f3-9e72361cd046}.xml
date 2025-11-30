@@ -1206,7 +1206,7 @@
 			<value>620</value>
 		</property>
 		<property name="lowShelfGain">
-			<value>-5</value>
+			<value>-21.5</value>
 		</property>
 		<property name="highCut">
 			<value>3100</value>
@@ -1222,11 +1222,17 @@
 		<property name="distanceRolloffType">
 			<value>1</value>
 		</property>
+		<property name="maximumDistance">
+			<value>8000</value>
+		</property>
+		<property name="overrideRange">
+			<value>true</value>
+		</property>
 		<property name="extentMode">
 			<value>1</value>
 		</property>
 		<property name="soundSize">
-			<value>17</value>
+			<value>10000</value>
 		</property>
 	</object>
 	<object class="AutomationPoint" id="{5e8e9818-73e8-403a-95f8-dccfcd81716d}">
@@ -1325,7 +1331,7 @@
 			<value>-80</value>
 		</property>
 		<property name="curveShape">
-			<value>-0.12395858</value>
+			<value>-0.323272586</value>
 		</property>
 	</object>
 	<object class="AutomationPoint" id="{f395707f-658f-4047-8ab7-103104a7be7e}">
@@ -1344,7 +1350,7 @@
 			<value>0</value>
 		</property>
 		<property name="curveShape">
-			<value>0.285829633</value>
+			<value>0.56730324</value>
 		</property>
 	</object>
 	<object class="AutomationPoint" id="{a5e03553-93a7-40dc-b8a3-92a1c03f0c04}">

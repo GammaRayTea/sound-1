@@ -7,7 +7,6 @@ var tracks:Dictionary = {
 	pad = "fmod_parameters/fade_pad",
 	melody = "fmod_parameters/fade_melody"
 }
-var positional = false
 func enable_track(key:String)->void:
 	self[key] = 1
 

@@ -2,23 +2,28 @@ class_name PositionalMusicEvent extends Node2D
 const MAX_DISTANCE = 570
 
 var initalPosDifference:Vector2
-@export var musicPlayer:MusicPlayer
-@export var listener:FmodListener2D
+var musicPlayer:MusicPlayer
+var listener:FmodListener2D
 @export var oneShot:bool
 @export var changingProperty:String
 var playerBody
 var game:Game
 func on_player_ready() -> void:
 	process_mode = Node.PROCESS_MODE_INHERIT
-	print("ready")
+	
 	game = get_tree(). get_first_node_in_group("Game")
 	game.set_positional(true);
+	
+	musicPlayer = game.globalMusicPlayer
+	listener = game.globalListener
+	musicPlayer.get_parent().global_position = $EmitterStart.global_position
+	listener.get_parent().global_position = $ListenerStart.global_position
+	
 	playerBody = game.player.body
 	initalPosDifference = playerBody.get_bones_center_position() - global_position
-	musicPlayer.play()
 
 func _physics_process(_delta):
-	print(calc_scaled_distance_factor())
+	pass
 
 
 
@@ -29,6 +34,6 @@ func calc_scaled_distance_factor() -> float:
 	
 func position_reached() -> void:
 	if oneShot:
-		musicPlayer.stop()
 		game.set_positional(false);
 		queue_free()
+		
