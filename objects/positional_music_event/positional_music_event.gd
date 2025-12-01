@@ -1,7 +1,7 @@
 class_name PositionalMusicEvent extends Node2D
 const MAX_DISTANCE = 570
 
-var initalPosDifference:Vector2
+var initialPosDifference:Vector2
 var musicPlayer:MusicPlayer
 var listener:FmodListener2D
 @export var oneShot:bool
@@ -18,9 +18,10 @@ func on_player_ready() -> void:
 	listener = game.globalListener
 	musicPlayer.get_parent().global_position = $EmitterStart.global_position
 	listener.get_parent().global_position = $ListenerStart.global_position
+	musicPlayer["fmod_parameters/reverb_crossfade"] = 0
 	
 	playerBody = game.player.body
-	initalPosDifference = playerBody.get_bones_center_position() - global_position
+	initialPosDifference = playerBody.get_bones_center_position() - global_position
 
 func _physics_process(_delta):
 	pass
@@ -29,7 +30,7 @@ func _physics_process(_delta):
 
 func calc_scaled_distance_factor() -> float:
 	var currentPosDifference:Vector2 =  playerBody.get_bones_center_position() - global_position
-	var factor = (currentPosDifference.length()/initalPosDifference.length())
+	var factor = (currentPosDifference.length()/initialPosDifference.length())
 	return factor
 	
 func position_reached() -> void:

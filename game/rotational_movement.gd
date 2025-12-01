@@ -4,5 +4,5 @@ extends Node2D
 @export var rotation_speed = PI
 
 
-func _process(delta):
-	position+=Vector2(10,0)
+func _physics_process(delta: float) -> void:
+	position+=Vector2(1,0)

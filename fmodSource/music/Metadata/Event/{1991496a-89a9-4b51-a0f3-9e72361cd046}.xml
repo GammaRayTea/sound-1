@@ -77,7 +77,14 @@
 			<destination>{9adbd088-96bc-4dea-842a-2f47db0ad859}</destination>
 		</relationship>
 	</object>
-	<object class="EventAutomatableProperties" id="{8a506a28-ab53-4bfd-bacc-d1ee7c60a712}" />
+	<object class="EventAutomatableProperties" id="{8a506a28-ab53-4bfd-bacc-d1ee7c60a712}">
+		<property name="isPersistent">
+			<value>true</value>
+		</property>
+		<property name="maximumDistance">
+			<value>700</value>
+		</property>
+	</object>
 	<object class="MarkerTrack" id="{dd61908f-d5ee-4527-a8a4-0690af55a8d1}" />
 	<object class="MarkerTrack" id="{27d3f7dc-58bf-4060-af85-a91c61c4db5e}" />
 	<object class="GroupTrack" id="{218d90ae-c4d2-4622-b2fa-ad9ca63877b4}">
@@ -832,11 +839,15 @@
 		<property name="nameOfPropertyBeingModulated">
 			<value>volume</value>
 		</property>
+		<property name="speedAscending">
+			<value>0.62000000476837158</value>
+		</property>
 	</object>
 	<object class="MixerBusEffectChain" id="{b8604c11-33f2-4794-8f88-5298898655b5}">
 		<relationship name="effects">
 			<destination>{17f71558-213b-4d60-a64c-87b64fd59c7b}</destination>
-			<destination>{894a04bf-93bf-481c-b276-49ed0dd88b8f}</destination>
+			<destination>{e05f6a36-db82-4193-a72a-1fdb2f7dab0d}</destination>
+			<destination>{564c91ba-0e64-4619-adf9-e76f1e151442}</destination>
 			<destination>{936e3c97-6fba-4e4e-a665-5427bdbed02a}</destination>
 		</relationship>
 	</object>
@@ -1186,7 +1197,12 @@
 		</relationship>
 	</object>
 	<object class="MixerBusFader" id="{17f71558-213b-4d60-a64c-87b64fd59c7b}" />
-	<object class="SFXReverbEffect" id="{894a04bf-93bf-481c-b276-49ed0dd88b8f}">
+	<object class="DelayEffect" id="{e05f6a36-db82-4193-a72a-1fdb2f7dab0d}">
+		<property name="delay">
+			<value>340</value>
+		</property>
+	</object>
+	<object class="SFXReverbEffect" id="{564c91ba-0e64-4619-adf9-e76f1e151442}">
 		<property name="decayTime">
 			<value>20000</value>
 		</property>
@@ -1212,18 +1228,18 @@
 			<value>3100</value>
 		</property>
 		<property name="wetLevel">
-			<value>4.5</value>
+			<value>10</value>
 		</property>
 		<property name="dryLevel">
 			<value>-80</value>
 		</property>
 	</object>
 	<object class="SpatialiserEffect" id="{936e3c97-6fba-4e4e-a665-5427bdbed02a}">
-		<property name="distanceRolloffType">
-			<value>1</value>
+		<property name="minimumDistance">
+			<value>0</value>
 		</property>
 		<property name="maximumDistance">
-			<value>8000</value>
+			<value>10000</value>
 		</property>
 		<property name="overrideRange">
 			<value>true</value>
@@ -1232,7 +1248,10 @@
 			<value>1</value>
 		</property>
 		<property name="soundSize">
-			<value>10000</value>
+			<value>0.900000036</value>
+		</property>
+		<property name="minimumExtent">
+			<value>22</value>
 		</property>
 	</object>
 	<object class="AutomationPoint" id="{5e8e9818-73e8-403a-95f8-dccfcd81716d}">
@@ -1331,7 +1350,7 @@
 			<value>-80</value>
 		</property>
 		<property name="curveShape">
-			<value>-0.323272586</value>
+			<value>-0.226677328</value>
 		</property>
 	</object>
 	<object class="AutomationPoint" id="{f395707f-658f-4047-8ab7-103104a7be7e}">
@@ -1350,7 +1369,7 @@
 			<value>0</value>
 		</property>
 		<property name="curveShape">
-			<value>0.56730324</value>
+			<value>0.640870929</value>
 		</property>
 	</object>
 	<object class="AutomationPoint" id="{a5e03553-93a7-40dc-b8a3-92a1c03f0c04}">

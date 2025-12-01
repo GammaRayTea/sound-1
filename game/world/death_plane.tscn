@@ -1,0 +1,43 @@
+[gd_scene load_steps=5 format=3 uid="uid://bidfexcdw53os"]
+
+[ext_resource type="Script" uid="uid://4lb48ue74p1v" path="res://game/world/death_plane.gd" id="1_1tbgk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_84bvo"]
+size = Vector2(5000, 383)
+
+[sub_resource type="Gradient" id="Gradient_1tbgk"]
+offsets = PackedFloat32Array(0.16342412, 0.5097276, 0.7392996, 0.9027237, 1)
+colors = PackedColorArray(0.3846475, 0, 0, 1, 0.4617232, 0, 0, 0.9192238, 0.8, 0, 0, 0.5647059, 0.780517, 0, 0, 0.5851244, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_gk62m"]
+gradient = SubResource("Gradient_1tbgk")
+height = 500
+fill_from = Vector2(0, 1)
+fill_to = Vector2(0, 0)
+
+[node name="DeathPlane" type="Area2D"]
+collision_layer = 0
+collision_mask = 8
+script = ExtResource("1_1tbgk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 304.5)
+shape = SubResource("RectangleShape2D_84bvo")
+debug_color = Color(1, 1, 1, 0.41960785)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+z_index = -2
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -2500.0
+offset_top = -250.0
+offset_right = 2500.0
+offset_bottom = 3886.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 4
+mouse_filter = 2
+texture = SubResource("GradientTexture2D_gk62m")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

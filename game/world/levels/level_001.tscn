@@ -1,19 +1,37 @@
-[gd_scene load_steps=8 format=3 uid="uid://b6fhfrq7t1c63"]
+[gd_scene load_steps=14 format=3 uid="uid://b6fhfrq7t1c63"]
 
 [ext_resource type="PackedScene" uid="uid://dtpqi5l5rqwti" path="res://game/world/logic/levelBase/level_base.tscn" id="1_pwcrd"]
+[ext_resource type="Texture2D" uid="uid://c4u2co25mdesy" path="res://objects/backgroundGradients/mountain.tres" id="2_0vbv1"]
 [ext_resource type="PackedScene" uid="uid://bo1hyllxfs6ws" path="res://objects/shapes/block/block.tscn" id="2_auyno"]
 [ext_resource type="Texture2D" uid="uid://cbyg84pvhfx2w" path="res://objects/shapes/block/textures/block_mountain.tres" id="3_atjrp"]
 [ext_resource type="PackedScene" uid="uid://c44s8lam6fusd" path="res://game/world/logic/levelTransition/level_transition.tscn" id="3_sxj1f"]
 [ext_resource type="PackedScene" uid="uid://b7xlq3qpk0tlm" path="res://game/world/logic/levelBase/player_spawn.tscn" id="5_auyno"]
+[ext_resource type="PackedScene" uid="uid://bjepj4mn5dcnm" path="res://objects/shapes/block/breakable_block.tscn" id="5_cpg6o"]
 [ext_resource type="PackedScene" uid="uid://bfpjsh04qym3c" path="res://objects/positional_music_event/positional_music_event.tscn" id="6_sxj1f"]
-[ext_resource type="Script" uid="uid://dhjq0ea6vvgxc" path="res://objects/positional_music_event/behaviours/distant_to_close.gd" id="7_4ulbk"]
+[ext_resource type="Script" uid="uid://cgdqmpcumf3lu" path="res://objects/positional_music_event/behaviours/follow_path.gd" id="7_4ulbk"]
+[ext_resource type="PackedScene" uid="uid://bidfexcdw53os" path="res://game/world/death_plane.tscn" id="10_08liq"]
+[ext_resource type="PackedScene" uid="uid://dlujl64mv4q7c" path="res://game/checkpoint/checkpoint.tscn" id="11_lawhf"]
+
+[sub_resource type="Curve2D" id="Curve2D_0vbv1"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 789, 33826, -83.427284, 1251.4093, 83.427284, -1251.4093, 854, 26808, 0, 683.78345, 0, -683.78345, 1994, 16605, 366.31256, 1115.2183, -366.31256, -1115.2183, 1628, 14301, 170.94586, 423.29453, -170.94586, -423.29453, 16, 11696, -193.2139, 1256.2266, 193.2139, -1256.2266, 45, 9960, -116.208206, 1099.9088, 116.208206, -1099.9088, 873, 5826, 725.2988, 1889.3586, -725.2988, -1889.3586, -223, 750)
+}
+point_count = 8
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lawhf"]
+size = Vector2(269, 395)
 
 [node name="level_001" node_paths=PackedStringArray("playerSpawn", "transitions") instance=ExtResource("1_pwcrd")]
 playerSpawn = NodePath("PlayerSpawn")
+gradient = ExtResource("2_0vbv1")
 transitions = [NodePath("LevelTransition")]
 
 [node name="Camera2D" parent="." index="0"]
 position = Vector2(27, -32877)
+limit_left = 71
+limit_top = -9997617
+limit_right = 25977
+limit_bottom = 333
 
 [node name="Block" parent="Blocks" index="0" instance=ExtResource("2_auyno")]
 position = Vector2(251, -31595)
@@ -49,11 +67,11 @@ polygon = PackedVector2Array(1476, -3775, 1926, -2572, 60, 4847, -2236, -3159)
 position = Vector2(1041, -18679)
 
 [node name="CollisionPolygon2D" parent="Blocks/Block4" index="0"]
-polygon = PackedVector2Array(-1041, -3441, 668, -582, -327, 2803, -1810, 1668)
+polygon = PackedVector2Array(-1041, -3441, 1298, -88, -327, 2803, -1810, 1668)
 
 [node name="Polygon2D" parent="Blocks/Block4" index="1"]
 texture = ExtResource("3_atjrp")
-polygon = PackedVector2Array(-1041, -3441, 668, -582, -327, 2803, -1810, 1668)
+polygon = PackedVector2Array(-1041, -3441, 1298, -88, -327, 2803, -1810, 1668)
 
 [node name="Block5" parent="Blocks" index="4" instance=ExtResource("2_auyno")]
 position = Vector2(2528, -22208)
@@ -76,47 +94,47 @@ texture = ExtResource("3_atjrp")
 polygon = PackedVector2Array(-32, -673, 126, -529, 249, 1256, 36, 934)
 
 [node name="Block7" parent="Blocks" index="6" instance=ExtResource("2_auyno")]
-position = Vector2(2848, -18496)
+position = Vector2(3162, -18880)
 
 [node name="CollisionPolygon2D" parent="Blocks/Block7" index="0"]
-polygon = PackedVector2Array(-1256, -2760, 1748, -2332, -32, 1680, -715, -673)
+polygon = PackedVector2Array(-1256, -2760, 1748, -2332, 538, 1212, -1678, -1859)
 
 [node name="Polygon2D" parent="Blocks/Block7" index="1"]
 texture = ExtResource("3_atjrp")
-polygon = PackedVector2Array(-1256, -2760, 1748, -2332, -32, 1680, -715, -673)
+polygon = PackedVector2Array(-1256, -2760, 1748, -2332, 538, 1212, -1678, -1859)
 
 [node name="Block8" parent="Blocks" index="7" instance=ExtResource("2_auyno")]
 position = Vector2(3872, -14928)
 
 [node name="CollisionPolygon2D" parent="Blocks/Block8" index="0"]
-polygon = PackedVector2Array(39, -3019, 3007, 377, 2632, 10904, -808, 9480)
+polygon = PackedVector2Array(39, -3019, 3007, 377, 2632, 10904, -1711, 9468)
 
 [node name="Polygon2D" parent="Blocks/Block8" index="1"]
 texture = ExtResource("3_atjrp")
-polygon = PackedVector2Array(39, -3019, 3007, 377, 2632, 10904, -808, 9480)
+polygon = PackedVector2Array(39, -3019, 3007, 377, 2632, 10904, -1711, 9468)
 
 [node name="Block9" parent="Blocks" index="8" instance=ExtResource("2_auyno")]
 position = Vector2(100, -16979)
 
 [node name="CollisionPolygon2D" parent="Blocks/Block9" index="0"]
-polygon = PackedVector2Array(1258, -1342, 2505, 865, 509, 3111, 336, -76)
+polygon = PackedVector2Array(1908, -1701, 3007, 79, 509, 3111, 336, -76)
 
 [node name="Polygon2D" parent="Blocks/Block9" index="1"]
 texture = ExtResource("3_atjrp")
-polygon = PackedVector2Array(1258, -1342, 2505, 865, 509, 3111, 336, -76)
+polygon = PackedVector2Array(1908, -1701, 3007, 79, 509, 3111, 336, -76)
 
 [node name="Block10" parent="Blocks" index="9" instance=ExtResource("2_auyno")]
 position = Vector2(-436, -13660)
 
 [node name="CollisionPolygon2D" parent="Blocks/Block10" index="0"]
-polygon = PackedVector2Array(945, -1851, 2673, -2423, 3380, 8220, -1124, 10620)
+polygon = PackedVector2Array(945, -1851, 2673, -2423, 2448, 8205, -1124, 10620)
 
 [node name="Polygon2D" parent="Blocks/Block10" index="1"]
 texture = ExtResource("3_atjrp")
-polygon = PackedVector2Array(945, -1851, 2673, -2423, 3380, 8220, -1124, 10620)
+polygon = PackedVector2Array(945, -1851, 2673, -2423, 2448, 8205, -1124, 10620)
 
 [node name="Block11" parent="Blocks" index="10" instance=ExtResource("2_auyno")]
-position = Vector2(3912, -16064)
+position = Vector2(4401, -16762)
 
 [node name="CollisionPolygon2D" parent="Blocks/Block11" index="0"]
 polygon = PackedVector2Array(392, -3880, 1464, -2552, -360, 448, -1200, -720)
@@ -126,51 +144,162 @@ texture = ExtResource("3_atjrp")
 polygon = PackedVector2Array(392, -3880, 1464, -2552, -360, 448, -1200, -720)
 
 [node name="Block12" parent="Blocks" index="11" instance=ExtResource("2_auyno")]
-position = Vector2(1960, -2240)
+position = Vector2(285, -2239)
 
 [node name="CollisionPolygon2D" parent="Blocks/Block12" index="0"]
-polygon = PackedVector2Array(-312, 0, 8208, 0, 7272, 1472, 104, 1408)
+polygon = PackedVector2Array(-312, 0, 7499, 0, 7499, 1472, 104, 1408)
 
 [node name="Polygon2D" parent="Blocks/Block12" index="1"]
 texture = ExtResource("3_atjrp")
-polygon = PackedVector2Array(-312, 0, 8208, 0, 7272, 1472, 104, 1408)
+polygon = PackedVector2Array(-312, 0, 7499, 0, 7499, 1472, 104, 1408)
 
 [node name="Block13" parent="Blocks" index="12" instance=ExtResource("2_auyno")]
-position = Vector2(-2904, -2608)
+position = Vector2(-3554, -3018)
 
 [node name="CollisionPolygon2D" parent="Blocks/Block13" index="0"]
-polygon = PackedVector2Array(2320, -1408, 4792, -3088, 5256, 832, 4504, 1720)
+polygon = PackedVector2Array(3277, -2970, 5001, -1367, 5208, 565, 2649, -479)
 
 [node name="Polygon2D" parent="Blocks/Block13" index="1"]
 texture = ExtResource("3_atjrp")
-polygon = PackedVector2Array(2320, -1408, 4792, -3088, 5256, 832, 4504, 1720)
+polygon = PackedVector2Array(3277, -2970, 5001, -1367, 5208, 565, 2649, -479)
 
 [node name="Block14" parent="Blocks" index="13" instance=ExtResource("2_auyno")]
-position = Vector2(6368, -2792)
+position = Vector2(4337, -2479)
 
 [node name="CollisionPolygon2D" parent="Blocks/Block14" index="0"]
-polygon = PackedVector2Array(824, -1480, -1344, -1960, -928, 384, 552, 32)
+polygon = PackedVector2Array(596, -2379, -2181, -3022, -1831, -881, 389, -1661)
 
 [node name="Polygon2D" parent="Blocks/Block14" index="1"]
 texture = ExtResource("3_atjrp")
-polygon = PackedVector2Array(824, -1480, -1344, -1960, -928, 384, 552, 32)
+polygon = PackedVector2Array(596, -2379, -2181, -3022, -1831, -881, 389, -1661)
 
-[node name="LevelTransition" parent="." index="2" instance=ExtResource("3_sxj1f")]
-position = Vector2(5427.0005, -2414)
-scale = Vector2(3.6008759, 2.7188177)
+[node name="Block15" parent="Blocks" index="14" instance=ExtResource("2_auyno")]
+position = Vector2(-3339, -2620)
+
+[node name="CollisionPolygon2D" parent="Blocks/Block15" index="0"]
+polygon = PackedVector2Array(2320, -1408, 4985, -786, 5512, 898, 3468, 453)
+
+[node name="Polygon2D" parent="Blocks/Block15" index="1"]
+texture = ExtResource("3_atjrp")
+polygon = PackedVector2Array(2320, -1408, 4985, -786, 5512, 898, 3468, 453)
+
+[node name="Block17" parent="Blocks" index="15" instance=ExtResource("2_auyno")]
+position = Vector2(4610, -2835)
+
+[node name="CollisionPolygon2D" parent="Blocks/Block17" index="0"]
+polygon = PackedVector2Array(1051, -2314, -2037, -592, -1326, 360, 646, -95)
+
+[node name="Polygon2D" parent="Blocks/Block17" index="1"]
+texture = ExtResource("3_atjrp")
+polygon = PackedVector2Array(1051, -2314, -2037, -592, -1326, 360, 646, -95)
+
+[node name="Block16" parent="Blocks" index="16" instance=ExtResource("2_auyno")]
+position = Vector2(5763, -2107)
+
+[node name="CollisionPolygon2D" parent="Blocks/Block16" index="0"]
+polygon = PackedVector2Array(-193, -2593, -1068, -391, 189, -395, 871, -1902)
+
+[node name="Polygon2D" parent="Blocks/Block16" index="1"]
+texture = ExtResource("3_atjrp")
+polygon = PackedVector2Array(-193, -2593, -1068, -391, 189, -395, 871, -1902)
+
+[node name="Block18" parent="Blocks" index="17" instance=ExtResource("2_auyno")]
+position = Vector2(8303, -2109)
+
+[node name="CollisionPolygon2D" parent="Blocks/Block18" index="0"]
+polygon = PackedVector2Array(-263, -188, 86, -58, 160, 1327, -13, 1284)
+
+[node name="Polygon2D" parent="Blocks/Block18" index="1"]
+texture = ExtResource("3_atjrp")
+polygon = PackedVector2Array(-263, -188, 86, -58, 160, 1327, -13, 1284)
+
+[node name="BreakableBlock" parent="." index="2" instance=ExtResource("5_cpg6o")]
+position = Vector2(19051, 1523)
+delay = 6.0
+
+[node name="Block" parent="BreakableBlock" index="0"]
+position = Vector2(943, -2841)
+
+[node name="CollisionPolygon2D" parent="BreakableBlock/Block" index="0"]
+polygon = PackedVector2Array(-543, -1037, 833, -347, 808, 609, -822, 635)
+
+[node name="Polygon2D" parent="BreakableBlock/Block" index="1"]
+position = Vector2(0, 0)
+texture = ExtResource("3_atjrp")
+polygon = PackedVector2Array(-543, -1037, 833, -347, 808, 609, -822, 635)
+
+[node name="Rumble" parent="BreakableBlock" index="2"]
+position = Vector2(834, -2817)
+
+[node name="LevelTransition" parent="." index="3" instance=ExtResource("3_sxj1f")]
+position = Vector2(9899, -2604.0002)
+scale = Vector2(3.6008759, 3.7988276)
 id = "A"
 levelPath = "res://game/world/levels/level_002.tscn"
 
-[node name="PlayerSpawn" parent="." index="3" instance=ExtResource("5_auyno")]
+[node name="PlayerSpawn" parent="." index="4" instance=ExtResource("5_auyno")]
 position = Vector2(570, -32489)
 
-[node name="PositionalMusicEvent" parent="." index="4" instance=ExtResource("6_sxj1f")]
+[node name="PositionalMusicEvent" parent="." index="5" instance=ExtResource("6_sxj1f")]
 position = Vector2(3346, -2396)
 script = ExtResource("7_4ulbk")
 oneShot = true
 
-[node name="ListenerStart" parent="PositionalMusicEvent" index="0"]
-position = Vector2(3454, -52)
+[node name="Path2D" type="Path2D" parent="PositionalMusicEvent" index="0"]
+position = Vector2(-2099, -29925)
+curve = SubResource("Curve2D_0vbv1")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="PositionalMusicEvent/Path2D" index="0"]
+position = Vector2(466.6808, 2871.9485)
+rotation = -1.8309041
+progress = 31686.777
+loop = false
+
+[node name="ListenerStart" parent="PositionalMusicEvent" index="1"]
+position = Vector2(-2712, -4742)
+
+[node name="EmitterStart" parent="PositionalMusicEvent" index="2"]
+position = Vector2(-1230, -564)
+
+[node name="Wind" type="FmodEventEmitter2D" parent="." index="6"]
+event_name = "event:/wind"
+event_guid = "{71477e54-9499-4aae-9d1d-edd0e8dfbc61}"
+attached = false
+autoplay = true
+volume = 0.4
+position = Vector2(1496, -32937)
+
+[node name="ColorRect" type="ColorRect" parent="Wind" index="0"]
+visible = false
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0.09803922, 1, 1, 1)
+
+[node name="BackgroundTarget" type="Node2D" parent="." index="7"]
+
+[node name="DeathPlane" parent="." index="8" instance=ExtResource("10_08liq")]
+position = Vector2(8709, -1916)
+
+[node name="Checkpoints" type="Node2D" parent="." index="9"]
+
+[node name="Checkpoint" parent="Checkpoints" index="0" instance=ExtResource("11_lawhf")]
+position = Vector2(7252, -2413)
+
+[node name="CollisionShape2D" parent="Checkpoints/Checkpoint" index="0"]
+position = Vector2(-71.5, -14.5)
+shape = SubResource("RectangleShape2D_lawhf")
+
+[node name="PlayerSpawn" parent="Checkpoints/Checkpoint" index="1"]
+position = Vector2(-59, -3)
+
+[node name="Checkpoint2" parent="Checkpoints" index="1" instance=ExtResource("11_lawhf")]
+position = Vector2(7342, -2465)
+
+[node name="CollisionShape2D" parent="Checkpoints/Checkpoint2" index="0"]
+position = Vector2(1703.25, -61)
+
+[node name="PlayerSpawn" parent="Checkpoints/Checkpoint2" index="1"]
+position = Vector2(1705, -66)
 
 [editable path="Blocks/Block"]
 [editable path="Blocks/Block2"]
@@ -186,4 +315,12 @@ position = Vector2(3454, -52)
 [editable path="Blocks/Block12"]
 [editable path="Blocks/Block13"]
 [editable path="Blocks/Block14"]
+[editable path="Blocks/Block15"]
+[editable path="Blocks/Block17"]
+[editable path="Blocks/Block16"]
+[editable path="Blocks/Block18"]
+[editable path="BreakableBlock"]
+[editable path="BreakableBlock/Block"]
 [editable path="PositionalMusicEvent"]
+[editable path="Checkpoints/Checkpoint"]
+[editable path="Checkpoints/Checkpoint2"]

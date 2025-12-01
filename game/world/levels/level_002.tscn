@@ -1,12 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://cxcxxywvbojxu"]
+[gd_scene load_steps=6 format=3 uid="uid://cxcxxywvbojxu"]
 
 [ext_resource type="PackedScene" uid="uid://dtpqi5l5rqwti" path="res://game/world/logic/levelBase/level_base.tscn" id="1_nta4l"]
 [ext_resource type="PackedScene" uid="uid://cbkm4kty504gp" path="res://objects/entity/enemies/enemy_circle/enemy_randomMover.tscn" id="2_j286f"]
+[ext_resource type="Texture2D" uid="uid://b3t7tcv814ag0" path="res://objects/backgroundGradients/default.tres" id="2_nta4l"]
 [ext_resource type="PackedScene" uid="uid://c44s8lam6fusd" path="res://game/world/logic/levelTransition/level_transition.tscn" id="3_tl0ye"]
 [ext_resource type="PackedScene" uid="uid://bo1hyllxfs6ws" path="res://objects/shapes/block/block.tscn" id="5_w4o7v"]
 
-[node name="level_002" node_paths=PackedStringArray("playerSpawn", "transitions") instance=ExtResource("1_nta4l")]
-playerSpawn = NodePath("")
+[node name="level_002" node_paths=PackedStringArray("transitions") instance=ExtResource("1_nta4l")]
+gradient = ExtResource("2_nta4l")
 transitions = [NodePath("LevelTransition")]
 
 [node name="Camera2D" parent="." index="0"]

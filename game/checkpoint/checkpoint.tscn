@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://dlujl64mv4q7c"]
+
+[ext_resource type="Script" uid="uid://bywh3cauk03do" path="res://game/checkpoint/checkpoint.gd" id="1_1mk51"]
+[ext_resource type="PackedScene" uid="uid://b7xlq3qpk0tlm" path="res://game/world/logic/levelBase/player_spawn.tscn" id="2_4srjh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iglvo"]
+size = Vector2(369.5, 286)
+
+[node name="Checkpoint" type="Area2D"]
+collision_layer = 0
+collision_mask = 8
+script = ExtResource("1_1mk51")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_iglvo")
+
+[node name="PlayerSpawn" parent="." instance=ExtResource("2_4srjh")]
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

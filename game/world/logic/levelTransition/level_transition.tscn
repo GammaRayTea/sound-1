@@ -47,6 +47,7 @@ debug_color = Color(0.79751134, 0.42343736, 1.92523e-07, 0.41960785)
 metadata/_edit_group_ = true
 
 [node name="TextureRect" type="TextureRect" parent="."]
+z_index = -1
 offset_right = 40.0
 offset_bottom = 40.0
 texture = SubResource("GradientTexture2D_1e17m")
@@ -61,7 +62,7 @@ shape = SubResource("RectangleShape2D_g752d")
 debug_color = Color(0.88180524, 0.27955997, 0.48875248, 0.41960785)
 
 [node name="PlayerSpawn" parent="." instance=ExtResource("2_g752d")]
-position = Vector2(32, 58)
+position = Vector2(-11.999996, 58)
 scale = Vector2(0.1, 0.1)
 
 [connection signal="area_exited" from="RepeatPreventer" to="." method="_on_repeat_preventer_area_exited"]

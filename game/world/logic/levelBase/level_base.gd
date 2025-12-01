@@ -2,8 +2,8 @@ class_name Level extends Node2D
 
 @onready var player:Player = get_tree().get_first_node_in_group("Game").player
 @export var playerSpawn:Node2D
-@export var transitions:Array[LevelTransition]
 @export var gradient:GradientTexture2D
+@export var transitions:Array[LevelTransition]
 func set_spawn(_transitionId = null):
 	
 	if _transitionId:
@@ -13,13 +13,26 @@ func set_spawn(_transitionId = null):
 			if transitions[i].id == _transitionId:
 				playerSpawn = transitions[i].spawnPoint
 				transitions[i].just_spawned = true
-				player.respawn(playerSpawn.global_position)
+				
 	
-	player.respawn(playerSpawn.global_position)
+	respawn_player()
+	
 	get_tree().call_group("PlayerDependent","on_player_ready")
 
 func _ready() -> void:
+	if gradient:
+		var background:BackgroundGradient =  get_tree().get_first_node_in_group("Background")
+		background.set_background(gradient)
+		
+	player.died.connect(respawn_player)
 	apply_cam_limits()
+	
+	var checkpoints:Array = $Checkpoints.get_children()
+	for i in checkpoints.size():
+		var checkpoint:Checkpoint = checkpoints[i]
+		checkpoint.level = self
+		
+	
 	
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("ui_page_up"):
@@ -38,15 +51,5 @@ func apply_cam_limits():
 	localCam.queue_free()
 		
 
-func respawn()-> void:
-	pass
-	#print(player.body.global_position, playerSpawn.global_position)
-	#player.global_position = playerSpawn.global_position
-	#player.body.global_position = playerSpawn.global_position
-	#
-	#var bodies = player.body.get_rigid_bodies()
-	#var center = player.body.get_center_body().rigidbody.global_position
-	#for i in bodies.size():
-		#var body:SoftBody2D.SoftBodyChild = bodies[i]
-		#body.rigidbody.global_position= body.rigidbody.global_position - center + playerSpawn.global_position
-	#print(player.body.global_position, playerSpawn.global_position)
+func respawn_player()-> void:
+	player.respawn(playerSpawn.global_position)

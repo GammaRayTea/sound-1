@@ -1,10 +1,11 @@
-[gd_scene load_steps=22 format=3 uid="uid://dve0hkl73nldr"]
+[gd_scene load_steps=21 format=3 uid="uid://dve0hkl73nldr"]
 
 [ext_resource type="Script" uid="uid://cnnh17731tln3" path="res://game/player/player.gd" id="1_b2mth"]
 [ext_resource type="PackedScene" uid="uid://cs4dhb3ig4n2h" path="res://objects/entity/entitiy.tscn" id="2_a4w0n"]
 [ext_resource type="Script" uid="uid://hn8dasar2pll" path="res://game/player/camera.gd" id="3_8soms"]
 [ext_resource type="Script" uid="uid://dbgj6oqedsmmf" path="res://game/player/background_gradient.gd" id="4_5fytw"]
 [ext_resource type="PackedScene" uid="uid://bpmvvu8wxhp50" path="res://game/player/hud.tscn" id="4_a4w0n"]
+[ext_resource type="Texture2D" uid="uid://b3t7tcv814ag0" path="res://objects/backgroundGradients/default.tres" id="5_4ste8"]
 
 [sub_resource type="SkeletonModification2DLookAt" id="SkeletonModification2DLookAt_b2mth"]
 resource_local_to_scene = true
@@ -83,16 +84,6 @@ size = Vector2(36, 36)
 resource_local_to_scene = true
 size = Vector2(36, 36)
 
-[sub_resource type="Gradient" id="Gradient_a4w0n"]
-offsets = PackedFloat32Array(0.4234234, 1)
-colors = PackedColorArray(0.9380683, 0.6434071, 0.6458145, 1, 0.860237, 0.8031177, 1, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_rqcxa"]
-gradient = SubResource("Gradient_a4w0n")
-fill = 1
-fill_from = Vector2(0.5, 1)
-fill_to = Vector2(0.516, 0)
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_a4w0n"]
 radius = 54.0
 
@@ -103,62 +94,69 @@ raycasts = [NodePath("Followers/RayCastR"), NodePath("Followers/RayCastL")]
 camera = NodePath("Followers/Camera2D")
 
 [node name="Body" parent="." index="0"]
-collision_layer = 1
 collision_mask = 1
 
 [node name="Skeleton2D" parent="Body" index="0"]
 modification_stack = SubResource("SkeletonModificationStack2D_epvkq")
 
 [node name="Bone-0" parent="Body" index="1"]
-collision_layer = 1
 collision_mask = 1
 
 [node name="RectangleShape2D" parent="Body/Bone-0" index="0"]
 shape = SubResource("RectangleShape2D_5ghna")
 
 [node name="Bone-1" parent="Body" index="2"]
-collision_layer = 1
 collision_mask = 1
 
 [node name="RectangleShape2D" parent="Body/Bone-1" index="0"]
 shape = SubResource("RectangleShape2D_j0mij")
 
 [node name="Bone-2" parent="Body" index="3"]
-collision_layer = 1
 collision_mask = 1
 
 [node name="RectangleShape2D" parent="Body/Bone-2" index="0"]
 shape = SubResource("RectangleShape2D_gb4gm")
 
 [node name="Bone-3" parent="Body" index="4"]
-collision_layer = 1
 collision_mask = 1
 
 [node name="RectangleShape2D" parent="Body/Bone-3" index="0"]
 shape = SubResource("RectangleShape2D_uv2nh")
 
 [node name="Bone-4" parent="Body" index="5"]
-collision_layer = 1
 collision_mask = 1
 
 [node name="RectangleShape2D" parent="Body/Bone-4" index="0"]
 shape = SubResource("RectangleShape2D_n270p")
 
 [node name="Bone-5" parent="Body" index="6"]
-collision_layer = 1
 collision_mask = 1
 
 [node name="RectangleShape2D" parent="Body/Bone-5" index="0"]
 shape = SubResource("RectangleShape2D_3ep63")
 
-[node name="Camera2D" type="Camera2D" parent="Followers" index="3"]
+[node name="PlayerListener" type="FmodListener2D" parent="Followers" index="0"]
+listener_index = 1
+position = Vector2(-32, -32)
+
+[node name="RayCastR" parent="Followers" index="1"]
+position = Vector2(-32, 27)
+target_position = Vector2(0, 20)
+
+[node name="RayCastL" parent="Followers" index="2"]
+position = Vector2(32, 27)
+target_position = Vector2(0, 20)
+
+[node name="Camera2D" type="Camera2D" parent="Followers" index="4"]
 limit_left = 0
 position_smoothing_speed = 10.0
 script = ExtResource("3_8soms")
 
-[node name="BackgroundGradient" type="CanvasLayer" parent="Followers/Camera2D" index="0"]
+[node name="BackgroundGradient" type="CanvasLayer" parent="Followers/Camera2D" index="0" node_paths=PackedStringArray("background") groups=["Background"]]
 layer = -10
 script = ExtResource("4_5fytw")
+background = NodePath("BackgroundGradient")
+default = ExtResource("5_4ste8")
 
 [node name="BackgroundGradient" type="TextureRect" parent="Followers/Camera2D/BackgroundGradient" index="0"]
 z_index = -1000
@@ -177,9 +175,9 @@ grow_vertical = 2
 pivot_offset = Vector2(1455, 860.5)
 size_flags_horizontal = 4
 mouse_filter = 2
-texture = SubResource("GradientTexture2D_rqcxa")
+texture = ExtResource("5_4ste8")
 
-[node name="InteractionBox" type="Area2D" parent="Followers" index="4"]
+[node name="InteractionBox" type="Area2D" parent="Followers" index="5"]
 collision_layer = 8
 collision_mask = 0
 

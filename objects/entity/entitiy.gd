@@ -12,11 +12,13 @@ func clamp_speed() -> void:
 		
 		
 func teleport(_targetPos:Vector2)->void:
-	var bodies = body.get_rigid_bodies()
+	var bodies:Array[SoftBody2D.SoftBodyChild] = body.get_rigid_bodies()
 	var center = body.get_center_body().rigidbody.global_position
-	
-	#global_position = _targetPos
-	#body.global_position = _targetPos
-	print(_targetPos)
 	for i in bodies.size():
 		bodies[i].rigidbody.global_position= bodies[i].rigidbody.global_position - center + _targetPos
+
+func stop_velocity() -> void:
+	var bodies = body.get_rigid_bodies()
+	for i in bodies.size():
+		var elementBody:RigidBody2D = bodies[i].rigidbody
+		elementBody.linear_velocity = Vector2(0,0)

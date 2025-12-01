@@ -11,7 +11,6 @@ signal transition
 func _ready() -> void:
 	if !just_spawned:
 		exitArea.get_child(0).set_deferred("disabled",false)
-	
 	game = get_tree().get_nodes_in_group("Game")[0]
 	transition.connect(game.on_level_transition)
 

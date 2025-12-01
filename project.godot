@@ -11,7 +11,7 @@ config_version=5
 [Fmod]
 
 General/banks_path="res://fmodSource/music/Build/Desktop"
-"3D Settings/distance_factor"=32.0
+General/default_listener_count=2
 
 [application]
 
@@ -40,6 +40,7 @@ enabled=PackedStringArray("res://addons/fmod/plugin.cfg", "res://addons/softbody
 Game=""
 MusicPlayer=""
 PlayerDependent=""
+Background=""
 
 [input]
 
