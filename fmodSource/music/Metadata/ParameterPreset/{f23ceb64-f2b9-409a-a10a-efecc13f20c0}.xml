@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="ParameterPreset" id="{f23ceb64-f2b9-409a-a10a-efecc13f20c0}">
+		<property name="name">
+			<value>falling_frequency</value>
+		</property>
+		<relationship name="folder">
+			<destination>{5543889e-ea3b-4507-935a-847a7e7224b5}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{ed08bd58-543d-456d-b289-b5853d8dbea1}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{ed08bd58-543d-456d-b289-b5853d8dbea1}">
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+	</object>
+</objects>

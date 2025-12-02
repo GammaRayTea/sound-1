@@ -110,55 +110,56 @@ shape = SubResource("RectangleShape2D_5ghna")
 
 [node name="Bone-1" parent="Body" index="2"]
 collision_mask = 257
+contact_monitor = true
+max_contacts_reported = 2000
 
 [node name="RectangleShape2D" parent="Body/Bone-1" index="0"]
 shape = SubResource("RectangleShape2D_j0mij")
 
 [node name="Bone-2" parent="Body" index="3"]
 collision_mask = 257
+contact_monitor = true
+max_contacts_reported = 2000
 
 [node name="RectangleShape2D" parent="Body/Bone-2" index="0"]
 shape = SubResource("RectangleShape2D_gb4gm")
 
 [node name="Bone-3" parent="Body" index="4"]
 collision_mask = 257
+contact_monitor = true
+max_contacts_reported = 2000
 
 [node name="RectangleShape2D" parent="Body/Bone-3" index="0"]
 shape = SubResource("RectangleShape2D_uv2nh")
 
 [node name="Bone-4" parent="Body" index="5"]
 collision_mask = 257
+contact_monitor = true
+max_contacts_reported = 2000
 
 [node name="RectangleShape2D" parent="Body/Bone-4" index="0"]
 shape = SubResource("RectangleShape2D_n270p")
 
 [node name="Bone-5" parent="Body" index="6"]
 collision_mask = 257
+contact_monitor = true
+max_contacts_reported = 2000
 
 [node name="RectangleShape2D" parent="Body/Bone-5" index="0"]
 shape = SubResource("RectangleShape2D_3ep63")
 
-[node name="PlayerListener" type="FmodListener2D" parent="Followers" index="0"]
-listener_index = 1
-position = Vector2(-32, -32)
-
-[node name="ColorRect" type="ColorRect" parent="Followers/PlayerListener" index="0"]
-offset_right = 40.0
-offset_bottom = 40.0
-color = Color(0.45882353, 1, 1, 1)
-
-[node name="RayCastR" parent="Followers" index="1"]
+[node name="RayCastR" parent="Followers" index="0"]
 position = Vector2(-32, 3)
 target_position = Vector2(0, 50)
 
-[node name="RayCastL" parent="Followers" index="2"]
+[node name="RayCastL" parent="Followers" index="1"]
 position = Vector2(32, 3)
 target_position = Vector2(0, 50)
 
 [node name="CollisionShape2D" parent="Followers/HurtBox" index="0"]
 shape = SubResource("CircleShape2D_4ste8")
 
-[node name="Camera2D" type="Camera2D" parent="Followers" index="4"]
+[node name="Camera2D" type="Camera2D" parent="Followers" index="3"]
 limit_left = 0
 position_smoothing_speed = 10.0
 script = ExtResource("3_8soms")
@@ -188,12 +189,37 @@ size_flags_horizontal = 4
 mouse_filter = 2
 texture = ExtResource("5_4ste8")
 
-[node name="InteractionBox" type="Area2D" parent="Followers" index="5"]
+[node name="PlayerListener" type="FmodListener2D" parent="Followers/Camera2D" index="1"]
+listener_index = 1
+
+[node name="ColorRect" type="ColorRect" parent="Followers/Camera2D/PlayerListener" index="0"]
+visible = false
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0.45882353, 1, 1, 1)
+
+[node name="InteractionBox" type="Area2D" parent="Followers" index="4"]
 collision_layer = 8
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Followers/InteractionBox" index="0"]
 shape = SubResource("CircleShape2D_a4w0n")
+
+[node name="Impact" type="FmodEventEmitter2D" parent="Followers" index="6"]
+event_name = "event:/impact"
+event_guid = "{78914bba-b6f6-45f8-9008-0332ba41f836}"
+fmod_parameters/impact_value/id = -9185420942299940970
+fmod_parameters/impact_value = 0.0
+fmod_parameters/impact_value/variant_type = 2
+
+[node name="Falling" type="FmodEventEmitter2D" parent="Followers" index="7"]
+event_name = "event:/falling"
+event_guid = "{fd7781db-059a-4a76-a049-62cb08d91582}"
+autoplay = true
+volume = 0.8
+fmod_parameters/falling_frequency/id = -6057347942199597962
+fmod_parameters/falling_frequency = 0.0
+fmod_parameters/falling_frequency/variant_type = 3
 
 [node name="HUD" parent="." index="2" node_paths=PackedStringArray("player") instance=ExtResource("4_a4w0n")]
 player = NodePath("..")

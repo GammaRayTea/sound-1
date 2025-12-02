@@ -10,7 +10,7 @@ var strategies:Dictionary
 @export var layers:Array[String]
 var visNotif = VisibleOnScreenNotifier2D.new()
 func _ready() -> void:
-	
+	super()
 	for i in packedStrategies.size():
 		var strategy = packedStrategies[i].instantiate()
 		strategies[strategy.name] = strategy
@@ -19,7 +19,7 @@ func _ready() -> void:
 		
 	
 	add_child(visNotif)
-	visNotif.rect = Rect2(0,0,200,200)
+	visNotif.rect = Rect2(0,0,get_viewport_rect().size.x+100,get_viewport_rect().size.y+100)
 	visNotif.position = Vector2(-68,-68)
 	visNotif.screen_entered.connect(musicPlayer.enemy_entered)
 	visNotif.screen_exited.connect(musicPlayer.enemy_exited)

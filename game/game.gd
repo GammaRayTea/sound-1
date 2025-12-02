@@ -4,7 +4,7 @@ class_name Game extends Node2D
 @onready var startLevelPath = startLevel.resource_path
 @export var playerScene:PackedScene
 
-@export var globalMusicPlayer:FmodEventEmitter2D
+@export var globalMusicPlayer:MusicPlayer
 @export var globalListener:FmodListener2D
 var doIntroEvent:bool = true
 var screenTransition:ScreenTransisiton

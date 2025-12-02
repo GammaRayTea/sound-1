@@ -482,3 +482,8 @@ script = ExtResource("2_8c6cj")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Followers/HurtBox"]
 position = Vector2(32, 32)
 shape = SubResource("CircleShape2D_b2mth")
+
+[node name="Plop" type="FmodEventEmitter2D" parent="Followers"]
+event_name = "event:/cubePlop"
+event_guid = "{43b6bd64-015a-47d0-a218-11d5a98c9acc}"
+volume = 0.2

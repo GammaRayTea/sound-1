@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cxcxxywvbojxu"]
+[gd_scene load_steps=9 format=3 uid="uid://cxcxxywvbojxu"]
 
 [ext_resource type="PackedScene" uid="uid://dtpqi5l5rqwti" path="res://game/world/logic/levelBase/level_base.tscn" id="1_nta4l"]
 [ext_resource type="PackedScene" uid="uid://cbkm4kty504gp" path="res://objects/entity/enemies/enemy_circle/enemy_randomMover.tscn" id="2_j286f"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://vfyocxi0bfdf" path="res://objects/shapes/block/textures/block_cave.tres" id="5_j286f"]
 [ext_resource type="PackedScene" uid="uid://bo1hyllxfs6ws" path="res://objects/shapes/block/block.tscn" id="5_w4o7v"]
 [ext_resource type="PackedScene" uid="uid://dlujl64mv4q7c" path="res://game/checkpoint/checkpoint.tscn" id="7_tl0ye"]
+[ext_resource type="PackedScene" uid="uid://b7xlq3qpk0tlm" path="res://game/world/logic/levelBase/player_spawn.tscn" id="8_5grq2"]
 
 [node name="Level_002" node_paths=PackedStringArray("transitions") instance=ExtResource("1_nta4l")]
 gradient = ExtResource("2_nta4l")
@@ -299,6 +300,9 @@ levelPath = "res://game/world/levels/level_003.tscn"
 
 [node name="PlayerSpawn" parent="LevelTransition2" index="4"]
 position = Vector2(50.823368, 29.743294)
+
+[node name="PlayerSpawn" parent="." index="8" instance=ExtResource("8_5grq2")]
+position = Vector2(398, 557)
 
 [editable path="Blocks/Block"]
 [editable path="Blocks/Block2"]
