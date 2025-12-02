@@ -1,5 +1,5 @@
 class_name Entity extends Node2D
-
+@onready var initialPos = global_position
 @onready var body:SoftBody2D = $Body
 @export var MAX_SPEED = 600
 func _physics_process(_delta: float) -> void:
@@ -22,3 +22,6 @@ func stop_velocity() -> void:
 	for i in bodies.size():
 		var elementBody:RigidBody2D = bodies[i].rigidbody
 		elementBody.linear_velocity = Vector2(0,0)
+
+func reset_position() -> void:
+	teleport(initialPos)

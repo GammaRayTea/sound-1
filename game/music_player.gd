@@ -1,6 +1,6 @@
 class_name MusicPlayer extends FmodEventEmitter2D
 
-var tracks:Dictionary = {
+static var tracks:Dictionary = {
 	kick = "fmod_parameters/fade_kick",
 	drums = "fmod_parameters/fade_drums",
 	rhodes = "fmod_parameters/fade_rhodes",
@@ -20,5 +20,19 @@ func enemy_entered()->void:
 	enable_track(tracks.melody)
 	
 func enemy_exited()->void:
+	disable_track(tracks.kick)
+	disable_track(tracks.melody)
+	
+	
+
+func boss_entered() -> void:
+	enable_track(tracks.rhodes)
+	enable_track(tracks.drums)
+	enable_track(tracks.kick)
+	enable_track(tracks.melody)
+	
+func boss_exited()->void:
+	disable_track(tracks.rhodes)
+	disable_track(tracks.drums)
 	disable_track(tracks.kick)
 	disable_track(tracks.melody)

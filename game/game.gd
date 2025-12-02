@@ -6,11 +6,11 @@ class_name Game extends Node2D
 
 @export var globalMusicPlayer:FmodEventEmitter2D
 @export var globalListener:FmodListener2D
-
+var doIntroEvent:bool = true
 var screenTransition:ScreenTransisiton
 var player:Player
 var checkPoint
-var level
+var level:Level
 func _ready() -> void:
 	screenTransition = preload("res://game/screenTransition/screen_transition.tscn").instantiate()
 	add_child(screenTransition)
@@ -41,6 +41,17 @@ func on_level_transition(_packedLevelPath:String,_id = null, _previousLevel:Leve
 	add_child(level)
 
 	level.set_spawn(_id)
+	screenTransition.endTransition(3)
+
+func respawn():
+	
+	screenTransition.startTransition(1)
+	await screenTransition.transition_point_reached
+	player.reset_values()
+	get_tree().call_group("Entitiy","reset_position")
+	player.teleport(level.playerSpawn.global_position)
+	if level.playerSpawn.get_parent() is LevelTransition:
+		level.playerSpawn.get_parent().just_spawned = true
 	screenTransition.endTransition(3)
 
 func set_positional(state:bool) -> void:

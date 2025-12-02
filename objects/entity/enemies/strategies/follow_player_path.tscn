@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://desfpysyu25s7"]
+
+[ext_resource type="Script" uid="uid://c601p7sd13ho1" path="res://objects/entity/enemies/strategies/follow_player_path.gd" id="1_rn5bv"]
+
+[node name="FollowPlayerPath" type="Node"]
+script = ExtResource("1_rn5bv")

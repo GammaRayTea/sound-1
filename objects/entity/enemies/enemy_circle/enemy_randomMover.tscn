@@ -1,105 +1,102 @@
 [gd_scene load_steps=14 format=3 uid="uid://cbkm4kty504gp"]
 
-[ext_resource type="PackedScene" uid="uid://cs4dhb3ig4n2h" path="res://objects/entity/entitiy.tscn" id="1_4k1te"]
+[ext_resource type="PackedScene" uid="uid://cs4dhb3ig4n2h" path="res://objects/entity/entity.tscn" id="1_4k1te"]
 [ext_resource type="Script" uid="uid://boj831pk0thib" path="res://objects/entity/enemies/enemy_circle/enemy_randomMover.gd" id="2_b6lpc"]
 [ext_resource type="PackedScene" uid="uid://cemg37o2np2vs" path="res://objects/entity/enemies/strategies/walk_random.tscn" id="3_rh4ee"]
+[ext_resource type="Texture2D" uid="uid://kq3pgi6xh22i" path="res://objects/entity/enemies/enemy_circle/texture.tres" id="4_b6lpc"]
 
-[sub_resource type="Gradient" id="Gradient_as4br"]
-colors = PackedColorArray(0.92197675, 0.26642892, 0.108205415, 1, 0.42607912, 0.9999998, 0.60218334, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_rkfij"]
-gradient = SubResource("Gradient_as4br")
-fill = 1
-fill_from = Vector2(0.5, 0.5)
-
-[sub_resource type="SkeletonModification2DLookAt" id="SkeletonModification2DLookAt_ouxdk"]
+[sub_resource type="SkeletonModification2DLookAt" id="SkeletonModification2DLookAt_rh4ee"]
 resource_local_to_scene = true
 bone_index = 0
 bone2d_node = NodePath("Bone-0")
 target_nodepath = NodePath("Bone-4")
 editor/draw_gizmo = false
 
-[sub_resource type="SkeletonModification2DLookAt" id="SkeletonModification2DLookAt_vv1vl"]
+[sub_resource type="SkeletonModification2DLookAt" id="SkeletonModification2DLookAt_glj6c"]
 resource_local_to_scene = true
 bone_index = 1
 bone2d_node = NodePath("Bone-1")
 target_nodepath = NodePath("Bone-2")
 editor/draw_gizmo = false
 
-[sub_resource type="SkeletonModification2DLookAt" id="SkeletonModification2DLookAt_630bn"]
+[sub_resource type="SkeletonModification2DLookAt" id="SkeletonModification2DLookAt_bm74f"]
 resource_local_to_scene = true
 bone_index = 2
 bone2d_node = NodePath("Bone-2")
 target_nodepath = NodePath("Bone-1")
 editor/draw_gizmo = false
 
-[sub_resource type="SkeletonModification2DLookAt" id="SkeletonModification2DLookAt_ro2io"]
+[sub_resource type="SkeletonModification2DLookAt" id="SkeletonModification2DLookAt_uclob"]
 resource_local_to_scene = true
 bone_index = 3
 bone2d_node = NodePath("Bone-3")
 target_nodepath = NodePath("Bone-2")
 editor/draw_gizmo = false
 
-[sub_resource type="SkeletonModification2DLookAt" id="SkeletonModification2DLookAt_i5n3t"]
+[sub_resource type="SkeletonModification2DLookAt" id="SkeletonModification2DLookAt_bgone"]
 resource_local_to_scene = true
 bone_index = 4
 bone2d_node = NodePath("Bone-4")
 target_nodepath = NodePath("Bone-2")
 editor/draw_gizmo = false
 
-[sub_resource type="SkeletonModification2DLookAt" id="SkeletonModification2DLookAt_iiyi3"]
+[sub_resource type="SkeletonModification2DLookAt" id="SkeletonModification2DLookAt_h4ssk"]
 resource_local_to_scene = true
 bone_index = 5
 bone2d_node = NodePath("Bone-5")
 target_nodepath = NodePath("Bone-4")
 editor/draw_gizmo = false
 
-[sub_resource type="SkeletonModificationStack2D" id="SkeletonModificationStack2D_uxdfs"]
+[sub_resource type="SkeletonModificationStack2D" id="SkeletonModificationStack2D_hu70e"]
 resource_local_to_scene = true
 enabled = true
 modification_count = 6
-modifications/0 = SubResource("SkeletonModification2DLookAt_ouxdk")
-modifications/1 = SubResource("SkeletonModification2DLookAt_vv1vl")
-modifications/2 = SubResource("SkeletonModification2DLookAt_630bn")
-modifications/3 = SubResource("SkeletonModification2DLookAt_ro2io")
-modifications/4 = SubResource("SkeletonModification2DLookAt_i5n3t")
-modifications/5 = SubResource("SkeletonModification2DLookAt_iiyi3")
+modifications/0 = SubResource("SkeletonModification2DLookAt_rh4ee")
+modifications/1 = SubResource("SkeletonModification2DLookAt_glj6c")
+modifications/2 = SubResource("SkeletonModification2DLookAt_bm74f")
+modifications/3 = SubResource("SkeletonModification2DLookAt_uclob")
+modifications/4 = SubResource("SkeletonModification2DLookAt_bgone")
+modifications/5 = SubResource("SkeletonModification2DLookAt_h4ssk")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_044h5"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a44sf"]
 resource_local_to_scene = true
 size = Vector2(36, 36)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_b6lpc"]
+radius = 32.06244
 
 [node name="EnemyCircle" instance=ExtResource("1_4k1te")]
 script = ExtResource("2_b6lpc")
 packedStrategies = Array[PackedScene]([ExtResource("3_rh4ee")])
 MAX_SPEED = 100
 
-[node name="Body" parent="." index="0"]
-texture = SubResource("GradientTexture2D_rkfij")
+[node name="Body" parent="." index="0" node_paths=PackedStringArray("exclude_array")]
+texture = ExtResource("4_b6lpc")
+exclude_array = [null, null, null, null, null, null]
 
 [node name="Skeleton2D" parent="Body" index="0"]
-modification_stack = SubResource("SkeletonModificationStack2D_uxdfs")
-
-[node name="Bone-5" parent="Body/Skeleton2D" index="5"]
-scale = Vector2(0.99999994, 0.99999994)
+modification_stack = SubResource("SkeletonModificationStack2D_hu70e")
 
 [node name="RectangleShape2D" parent="Body/Bone-0" index="0"]
-shape = SubResource("RectangleShape2D_044h5")
+shape = SubResource("RectangleShape2D_a44sf")
 
 [node name="RectangleShape2D" parent="Body/Bone-1" index="0"]
-shape = SubResource("RectangleShape2D_044h5")
+shape = SubResource("RectangleShape2D_a44sf")
 
 [node name="RectangleShape2D" parent="Body/Bone-2" index="0"]
-shape = SubResource("RectangleShape2D_044h5")
+shape = SubResource("RectangleShape2D_a44sf")
 
 [node name="RectangleShape2D" parent="Body/Bone-3" index="0"]
-shape = SubResource("RectangleShape2D_044h5")
+shape = SubResource("RectangleShape2D_a44sf")
 
 [node name="RectangleShape2D" parent="Body/Bone-4" index="0"]
-shape = SubResource("RectangleShape2D_044h5")
+shape = SubResource("RectangleShape2D_a44sf")
 
 [node name="RectangleShape2D" parent="Body/Bone-5" index="0"]
-shape = SubResource("RectangleShape2D_044h5")
+shape = SubResource("RectangleShape2D_a44sf")
 
 [node name="HurtBox" parent="Followers" index="2"]
 damage = 30.0
+
+[node name="CollisionShape2D" parent="Followers/HurtBox" index="0"]
+shape = SubResource("CircleShape2D_b6lpc")

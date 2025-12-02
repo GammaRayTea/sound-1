@@ -15,16 +15,17 @@ func set_spawn(_transitionId = null):
 				transitions[i].just_spawned = true
 				
 	
-	respawn_player()
-	
-	get_tree().call_group("PlayerDependent","on_player_ready")
+	player.teleport(playerSpawn.global_position)
+	var game:Game = get_tree().get_first_node_in_group("Game")
+	if game.doIntroEvent:
+		
+		get_tree().call_group("PlayerDependent","on_player_ready")
 
 func _ready() -> void:
 	if gradient:
 		var background:BackgroundGradient =  get_tree().get_first_node_in_group("Background")
 		background.set_background(gradient)
 		
-	player.died.connect(respawn_player)
 	apply_cam_limits()
 	
 	var checkpoints:Array = $Checkpoints.get_children()
@@ -33,10 +34,6 @@ func _ready() -> void:
 		checkpoint.level = self
 		
 	
-	
-func _process(_delta: float) -> void:
-	if Input.is_action_just_pressed("ui_page_up"):
-		player.respawn(playerSpawn.global_position)
 
 
 
@@ -51,5 +48,8 @@ func apply_cam_limits():
 	localCam.queue_free()
 		
 
-func respawn_player()-> void:
-	player.respawn(playerSpawn.global_position)
+#func respawn_player()-> void:
+	#if playerSpawn.get_parent() is LevelTransition:
+		#playerSpawn.get_parent().just_spawned = true
+	#
+	#player.reset_values()

@@ -13,7 +13,7 @@ var invincibilityTime = -1
 @onready var hurtbox:CollisionShape2D = $Followers/HurtBox/CollisionShape2D
 @onready var healthbar:TextureProgressBar = $HUD/Control/HealthBar 
 
-signal died
+
 func _physics_process(delta: float) -> void:
 	super(delta)
 	input()
@@ -66,17 +66,16 @@ func is_on_floor() -> bool:
 
 func _on_hurt_box_entered(_hitbox: HitBox) -> void:
 	take_damage(_hitbox.damage)
-	
-	
-
-func die() -> void:
-	died.emit()
+	print(_hitbox.damage)
 	
 
 
-func respawn(_spawnPoint:Vector2) ->void:
+
+func reset_values() ->void:
 	currentHealth = MAX_HEALTH
-	teleport(_spawnPoint)
+	healthbar.value = currentHealth
+	hurtbox.set_deferred("disabled", false)
+	invincibilityTime-=1
 	stop_velocity()
 	
 
@@ -87,4 +86,5 @@ func take_damage(_amount:float) -> void:
 	healthbar.value = currentHealth
 	invincibilityTime = INVINCIBILITY_ON_HIT
 	if currentHealth <= 0:
-		die()
+		var game:Game = get_tree().get_first_node_in_group("Game")
+		game.respawn()

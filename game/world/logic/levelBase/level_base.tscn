@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dtpqi5l5rqwti"]
+[gd_scene load_steps=3 format=3 uid="uid://dtpqi5l5rqwti"]
 
 [ext_resource type="Script" uid="uid://drmaxq4sr11x8" path="res://game/world/logic/levelBase/level_base.gd" id="1_rr100"]
+[ext_resource type="PackedScene" uid="uid://bidfexcdw53os" path="res://game/world/death_plane.tscn" id="2_swthg"]
 
 [node name="LevelBase" type="Node2D"]
 script = ExtResource("1_rr100")
@@ -12,3 +13,7 @@ position_smoothing_enabled = true
 position_smoothing_speed = 10.0
 
 [node name="Blocks" type="Node2D" parent="."]
+
+[node name="Checkpoints" type="Node2D" parent="."]
+
+[node name="DeathPlane" parent="." instance=ExtResource("2_swthg")]

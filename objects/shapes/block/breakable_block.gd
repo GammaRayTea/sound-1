@@ -1,11 +1,18 @@
-extends Node2D
+class_name BreakableBlock extends Node2D
 
 @export var animPlayer:AnimationPlayer
 @export var delay:float
 signal broken
-
+func reset():
+	animPlayer.stop()
+	$Trigger.set_deferred("monitoring", true)
+	$Rumble["fmod_parameters/rumble_advance"] = "loop"
+	$Block.process_mode = Node.PROCESS_MODE_INHERIT
+	show()
+	
 func destroy():
 	animPlayer.play("rumble")
+	
 	$Rumble.play()
 	
 	var timer = Timer.new()
@@ -17,12 +24,13 @@ func destroy():
 	
 	$Rumble["fmod_parameters/rumble_advance"] = "next"
 	hide()
+	$Block.process_mode = Node.PROCESS_MODE_DISABLED
 
 	broken.emit()
 	
 
 
-func _on_trigger_area_entered(_area: Area2D, source: Area2D) -> void:
+func _on_trigger_area_entered(_area: Area2D) -> void:
 	destroy()
-	source.set_deferred("monitoring", false)
+	$Trigger.set_deferred("monitoring", false)
 	print("destroyed")

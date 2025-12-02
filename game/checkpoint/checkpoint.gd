@@ -5,5 +5,5 @@ func _ready() -> void:
 
 
 func _on_area_entered(area: Area2D) -> void:
-	print(area)
 	level.playerSpawn = $PlayerSpawn
+	$CollisionShape2D.set_deferred("disabled", true)

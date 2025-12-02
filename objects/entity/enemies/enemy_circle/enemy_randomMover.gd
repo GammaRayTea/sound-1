@@ -3,3 +3,4 @@ extends Enemy
 func _ready() -> void:
 	super()
 	priority = strategies["WalkRandom"]
+	

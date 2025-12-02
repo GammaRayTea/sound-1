@@ -9,7 +9,7 @@ var listener:FmodListener2D
 var playerBody
 var game:Game
 func on_player_ready() -> void:
-	process_mode = Node.PROCESS_MODE_INHERIT
+	
 	
 	game = get_tree(). get_first_node_in_group("Game")
 	game.set_positional(true);
@@ -18,7 +18,7 @@ func on_player_ready() -> void:
 	listener = game.globalListener
 	musicPlayer.get_parent().global_position = $EmitterStart.global_position
 	listener.get_parent().global_position = $ListenerStart.global_position
-	musicPlayer["fmod_parameters/reverb_crossfade"] = 0
+	
 	
 	playerBody = game.player.body
 	initialPosDifference = playerBody.get_bones_center_position() - global_position
@@ -35,6 +35,7 @@ func calc_scaled_distance_factor() -> float:
 	
 func position_reached() -> void:
 	if oneShot:
-		game.set_positional(false);
+		if game:
+			game.set_positional(false);
 		queue_free()
 		

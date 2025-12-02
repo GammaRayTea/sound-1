@@ -90,9 +90,10 @@ resource_local_to_scene = true
 size = Vector2(36, 36)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_b2mth"]
-radius = 54.037025
+resource_local_to_scene = true
+radius = 54.0
 
-[node name="Entitiy" type="Node2D"]
+[node name="Entitiy" type="Node2D" groups=["Entitiy"]]
 
 [node name="Body" type="Polygon2D" parent="." node_paths=PackedStringArray("exclude_array")]
 texture = SubResource("GradientTexture2D_b2mth")
@@ -105,7 +106,8 @@ script = ExtResource("2_y0q6s")
 vertex_interval = 38
 radius = 36
 margin_offset_edge = 7.0
-collision_mask = 5
+collision_layer = 256
+collision_mask = 261
 exclude_array = [NodePath("Bone-0"), NodePath("Bone-1"), NodePath("Bone-2"), NodePath("Bone-3"), NodePath("Bone-4"), NodePath("Bone-5")]
 metadata/_custom_type_script = "uid://kol6k5y6rb8a"
 
@@ -194,7 +196,8 @@ metadata/_local_pose_override_enabled_ = true
 
 [node name="Bone-0" type="RigidBody2D" parent="Body"]
 position = Vector2(32.626408, 16.494295)
-collision_mask = 5
+collision_layer = 256
+collision_mask = 261
 mass = 0.1
 metadata/idx = 0
 metadata/bone_name = &"Bone-0"
@@ -235,7 +238,8 @@ softness = 60.0
 
 [node name="Bone-1" type="RigidBody2D" parent="Body"]
 position = Vector2(16.92389, 22.680635)
-collision_mask = 5
+collision_layer = 256
+collision_mask = 261
 mass = 0.1
 metadata/idx = 1
 metadata/bone_name = &"Bone-1"
@@ -276,7 +280,8 @@ softness = 60.0
 
 [node name="Bone-2" type="RigidBody2D" parent="Body"]
 position = Vector2(32, 32)
-collision_mask = 5
+collision_layer = 256
+collision_mask = 261
 mass = 0.1
 metadata/idx = 2
 metadata/bone_name = &"Bone-2"
@@ -333,7 +338,8 @@ softness = 60.0
 
 [node name="Bone-3" type="RigidBody2D" parent="Body"]
 position = Vector2(16.163776, 46.307335)
-collision_mask = 5
+collision_layer = 256
+collision_mask = 261
 mass = 0.1
 metadata/idx = 3
 metadata/bone_name = &"Bone-3"
@@ -374,7 +380,8 @@ softness = 60.0
 
 [node name="Bone-4" type="RigidBody2D" parent="Body"]
 position = Vector2(47.91714, 22.568398)
-collision_mask = 5
+collision_layer = 256
+collision_mask = 261
 mass = 0.1
 metadata/idx = 4
 metadata/bone_name = &"Bone-4"
@@ -415,7 +422,8 @@ softness = 60.0
 
 [node name="Bone-5" type="RigidBody2D" parent="Body"]
 position = Vector2(37.966236, 44.667267)
-collision_mask = 5
+collision_layer = 256
+collision_mask = 261
 mass = 0.1
 metadata/idx = 5
 metadata/bone_name = &"Bone-5"

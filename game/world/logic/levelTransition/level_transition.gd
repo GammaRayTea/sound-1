@@ -26,7 +26,6 @@ func _on_exit_area_entered(_area: Area2D) -> void:
 
 
 func _on_repeat_preventer_area_exited(_area: Area2D) -> void:
-	print("aaaaaa")
 	if just_spawned:
 		just_spawned = false
 		exitArea.get_child(0).set_deferred("disabled",false)

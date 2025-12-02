@@ -4,16 +4,18 @@
 [ext_resource type="PackedScene" uid="uid://b7xlq3qpk0tlm" path="res://game/world/logic/levelBase/player_spawn.tscn" id="2_4srjh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iglvo"]
-size = Vector2(369.5, 286)
+size = Vector2(1008, 740.5)
 
 [node name="Checkpoint" type="Area2D"]
 collision_layer = 0
 collision_mask = 8
 script = ExtResource("1_1mk51")
+metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_iglvo")
 
 [node name="PlayerSpawn" parent="." instance=ExtResource("2_4srjh")]
+position = Vector2(3, 246)
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

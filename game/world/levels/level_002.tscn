@@ -1,55 +1,64 @@
-[gd_scene load_steps=6 format=3 uid="uid://cxcxxywvbojxu"]
+[gd_scene load_steps=8 format=3 uid="uid://cxcxxywvbojxu"]
 
 [ext_resource type="PackedScene" uid="uid://dtpqi5l5rqwti" path="res://game/world/logic/levelBase/level_base.tscn" id="1_nta4l"]
 [ext_resource type="PackedScene" uid="uid://cbkm4kty504gp" path="res://objects/entity/enemies/enemy_circle/enemy_randomMover.tscn" id="2_j286f"]
-[ext_resource type="Texture2D" uid="uid://b3t7tcv814ag0" path="res://objects/backgroundGradients/default.tres" id="2_nta4l"]
+[ext_resource type="Texture2D" uid="uid://b56yew1wf6ny4" path="res://objects/backgroundGradients/cave.tres" id="2_nta4l"]
 [ext_resource type="PackedScene" uid="uid://c44s8lam6fusd" path="res://game/world/logic/levelTransition/level_transition.tscn" id="3_tl0ye"]
+[ext_resource type="Texture2D" uid="uid://vfyocxi0bfdf" path="res://objects/shapes/block/textures/block_cave.tres" id="5_j286f"]
 [ext_resource type="PackedScene" uid="uid://bo1hyllxfs6ws" path="res://objects/shapes/block/block.tscn" id="5_w4o7v"]
+[ext_resource type="PackedScene" uid="uid://dlujl64mv4q7c" path="res://game/checkpoint/checkpoint.tscn" id="7_tl0ye"]
 
-[node name="level_002" node_paths=PackedStringArray("transitions") instance=ExtResource("1_nta4l")]
+[node name="Level_002" node_paths=PackedStringArray("transitions") instance=ExtResource("1_nta4l")]
 gradient = ExtResource("2_nta4l")
 transitions = [NodePath("LevelTransition")]
 
 [node name="Camera2D" parent="." index="0"]
-limit_right = 1942
+limit_right = 5640
 
-[node name="EnemyCircle" parent="." index="1" instance=ExtResource("2_j286f")]
-position = Vector2(584, 584)
+[node name="EnemyCircle2" parent="." index="1" instance=ExtResource("2_j286f")]
+position = Vector2(2880, 184)
+
+[node name="EnemyCircle" parent="." index="2" instance=ExtResource("2_j286f")]
+position = Vector2(1400, 752)
 
 [node name="Block" parent="Blocks" index="0" instance=ExtResource("5_w4o7v")]
 position = Vector2(3, 655)
 
 [node name="CollisionPolygon2D" parent="Blocks/Block" index="0"]
-polygon = PackedVector2Array(-185, -5, 1289, 26, 1277, 473, -98, 470)
+polygon = PackedVector2Array(-185, -5, 413, -7, 301, 385, -139, 409)
 
 [node name="Polygon2D" parent="Blocks/Block" index="1"]
-polygon = PackedVector2Array(-185, -5, 1289, 26, 1277, 473, -98, 470)
+texture = ExtResource("5_j286f")
+polygon = PackedVector2Array(-185, -5, 413, -7, 301, 385, -139, 409)
 
 [node name="Block2" parent="Blocks" index="1" instance=ExtResource("5_w4o7v")]
-position = Vector2(1284, 604)
+position = Vector2(1804, 804)
 
 [node name="CollisionPolygon2D" parent="Blocks/Block2" index="0"]
-polygon = PackedVector2Array(-136, -112, 2254, 36, 2363, 496, -272, 568)
+polygon = PackedVector2Array(-172, -84, 1380, -108, 1764, 604, -272, 568)
 
 [node name="Polygon2D" parent="Blocks/Block2" index="1"]
-polygon = PackedVector2Array(-136, -112, 2254, 36, 2363, 496, -272, 568)
+texture = ExtResource("5_j286f")
+polygon = PackedVector2Array(-172, -84, 1380, -108, 1764, 604, -272, 568)
 
 [node name="Block3" parent="Blocks" index="2" instance=ExtResource("5_w4o7v")]
-position = Vector2(1984, -31)
+position = Vector2(2160, -240)
 
 [node name="CollisionPolygon2D" parent="Blocks/Block3" index="0"]
-polygon = PackedVector2Array(-280, 344, 0, 336, 0, 384, -224, 376)
+polygon = PackedVector2Array(-280, 344, 128, 328, 152, 392, -224, 376)
 
 [node name="Polygon2D" parent="Blocks/Block3" index="1"]
-polygon = PackedVector2Array(-280, 344, 0, 336, 0, 384, -224, 376)
+texture = ExtResource("5_j286f")
+polygon = PackedVector2Array(-280, 344, 128, 328, 152, 392, -224, 376)
 
 [node name="Block4" parent="Blocks" index="3" instance=ExtResource("5_w4o7v")]
-position = Vector2(1637, -105)
+position = Vector2(1704, 96)
 
 [node name="CollisionPolygon2D" parent="Blocks/Block4" index="0"]
 polygon = PackedVector2Array(-700, 190, -42, 301, -145, 367, -671, 302)
 
 [node name="Polygon2D" parent="Blocks/Block4" index="1"]
+texture = ExtResource("5_j286f")
 polygon = PackedVector2Array(-700, 190, -42, 301, -145, 367, -671, 302)
 
 [node name="Block5" parent="Blocks" index="4" instance=ExtResource("5_w4o7v")]
@@ -59,16 +68,263 @@ position = Vector2(-1013, -1381)
 polygon = PackedVector2Array(873, 1457, 1156, 1496, 1132, 1783, 916, 1778)
 
 [node name="Polygon2D" parent="Blocks/Block5" index="1"]
+texture = ExtResource("5_j286f")
 polygon = PackedVector2Array(873, 1457, 1156, 1496, 1132, 1783, 916, 1778)
 
-[node name="LevelTransition" parent="." index="3" instance=ExtResource("3_tl0ye")]
+[node name="Block6" parent="Blocks" index="5" instance=ExtResource("5_w4o7v")]
+position = Vector2(2440, 296)
+
+[node name="CollisionPolygon2D" parent="Blocks/Block6" index="0"]
+polygon = PackedVector2Array(-172, -84, 552, -40, 392, 648, -8, 848)
+
+[node name="Polygon2D" parent="Blocks/Block6" index="1"]
+texture = ExtResource("5_j286f")
+polygon = PackedVector2Array(-172, -84, 552, -40, 392, 648, -8, 848)
+
+[node name="Block7" parent="Blocks" index="6" instance=ExtResource("5_w4o7v")]
+position = Vector2(2592, 1712)
+
+[node name="CollisionPolygon2D" parent="Blocks/Block7" index="0"]
+polygon = PackedVector2Array(408, -1336, 1472, -1312, 896, -936, 584, -1056)
+
+[node name="Polygon2D" parent="Blocks/Block7" index="1"]
+texture = ExtResource("5_j286f")
+polygon = PackedVector2Array(408, -1336, 1472, -1312, 896, -936, 584, -1056)
+
+[node name="Block8" parent="Blocks" index="7" instance=ExtResource("5_w4o7v")]
+position = Vector2(4296, 792)
+
+[node name="CollisionPolygon2D" parent="Blocks/Block8" index="0"]
+polygon = PackedVector2Array(-16, -240, 488, -248, 376, 16, 8, -72)
+
+[node name="Polygon2D" parent="Blocks/Block8" index="1"]
+texture = ExtResource("5_j286f")
+polygon = PackedVector2Array(-16, -240, 488, -248, 376, 16, 8, -72)
+
+[node name="Block9" parent="Blocks" index="8" instance=ExtResource("5_w4o7v")]
+position = Vector2(3528, 1072)
+
+[node name="CollisionPolygon2D" parent="Blocks/Block9" index="0"]
+polygon = PackedVector2Array(0, -304, 536, -248, 376, 16, 8, -72)
+
+[node name="Polygon2D" parent="Blocks/Block9" index="1"]
+texture = ExtResource("5_j286f")
+polygon = PackedVector2Array(0, -304, 536, -248, 376, 16, 8, -72)
+
+[node name="Block10" parent="Blocks" index="9" instance=ExtResource("5_w4o7v")]
+position = Vector2(424, 848)
+
+[node name="CollisionPolygon2D" parent="Blocks/Block10" index="0"]
+polygon = PackedVector2Array(-248, -96, 1224, 0, 1200, 384, -288, 400)
+
+[node name="Polygon2D" parent="Blocks/Block10" index="1"]
+texture = ExtResource("5_j286f")
+polygon = PackedVector2Array(-248, -96, 1224, 0, 1200, 384, -288, 400)
+
+[node name="Block11" parent="Blocks" index="10" instance=ExtResource("5_w4o7v")]
+position = Vector2(2504, -328)
+
+[node name="CollisionPolygon2D" parent="Blocks/Block11" index="0"]
+polygon = PackedVector2Array(-280, 320, -152, 296, 184, 608, -240, 728)
+
+[node name="Polygon2D" parent="Blocks/Block11" index="1"]
+texture = ExtResource("5_j286f")
+polygon = PackedVector2Array(-280, 320, -152, 296, 184, 608, -240, 728)
+
+[node name="Block12" parent="Blocks" index="11" instance=ExtResource("5_w4o7v")]
+position = Vector2(2768, 1400)
+
+[node name="CollisionPolygon2D" parent="Blocks/Block12" index="0"]
+polygon = PackedVector2Array(160, -1144, 1040, -1208, 888, 1160, -352, 1032)
+
+[node name="Polygon2D" parent="Blocks/Block12" index="1"]
+texture = ExtResource("5_j286f")
+polygon = PackedVector2Array(160, -1144, 1040, -1208, 888, 1160, -352, 1032)
+
+[node name="Block13" parent="Blocks" index="12" instance=ExtResource("5_w4o7v")]
+position = Vector2(4240, 1160)
+
+[node name="CollisionPolygon2D" parent="Blocks/Block13" index="0"]
+polygon = PackedVector2Array(464, -2272, 1616, -2704, 1672, 736, 376, 416)
+
+[node name="Polygon2D" parent="Blocks/Block13" index="1"]
+texture = ExtResource("5_j286f")
+polygon = PackedVector2Array(464, -2272, 1616, -2704, 1672, 736, 376, 416)
+
+[node name="Block14" parent="Blocks" index="13" instance=ExtResource("5_w4o7v")]
+position = Vector2(4008, 1464)
+
+[node name="CollisionPolygon2D" parent="Blocks/Block14" index="0"]
+polygon = PackedVector2Array(120, -416, 352, -408, 272, -200, 160, -200)
+
+[node name="Polygon2D" parent="Blocks/Block14" index="1"]
+texture = ExtResource("5_j286f")
+polygon = PackedVector2Array(120, -416, 352, -408, 272, -200, 160, -200)
+
+[node name="Block15" parent="Blocks" index="14" instance=ExtResource("5_w4o7v")]
+position = Vector2(3552, 1688)
+
+[node name="CollisionPolygon2D" parent="Blocks/Block15" index="0"]
+polygon = PackedVector2Array(120, -416, 456, -360, 336, -216, 160, -200)
+
+[node name="Polygon2D" parent="Blocks/Block15" index="1"]
+texture = ExtResource("5_j286f")
+polygon = PackedVector2Array(120, -416, 456, -360, 336, -216, 160, -200)
+
+[node name="Block16" parent="Blocks" index="15" instance=ExtResource("5_w4o7v")]
+position = Vector2(4264, 1816)
+
+[node name="CollisionPolygon2D" parent="Blocks/Block16" index="0"]
+polygon = PackedVector2Array(120, -416, 480, -416, 336, -216, 240, -248)
+
+[node name="Polygon2D" parent="Blocks/Block16" index="1"]
+texture = ExtResource("5_j286f")
+polygon = PackedVector2Array(120, -416, 480, -416, 336, -216, 240, -248)
+
+[node name="Block17" parent="Blocks" index="16" instance=ExtResource("5_w4o7v")]
+position = Vector2(4192, 2656)
+
+[node name="CollisionPolygon2D" parent="Blocks/Block17" index="0"]
+polygon = PackedVector2Array(464, -648, 1008, -632, 976, 384, 376, 416)
+
+[node name="Polygon2D" parent="Blocks/Block17" index="1"]
+texture = ExtResource("5_j286f")
+polygon = PackedVector2Array(464, -648, 1008, -632, 976, 384, 376, 416)
+
+[node name="Block18" parent="Blocks" index="17" instance=ExtResource("5_w4o7v")]
+position = Vector2(3728, 1968)
+
+[node name="CollisionPolygon2D" parent="Blocks/Block18" index="0"]
+polygon = PackedVector2Array(144, -368, 480, -384, 336, -216, 160, -200)
+
+[node name="Polygon2D" parent="Blocks/Block18" index="1"]
+texture = ExtResource("5_j286f")
+polygon = PackedVector2Array(144, -368, 480, -384, 336, -216, 160, -200)
+
+[node name="Block19" parent="Blocks" index="18" instance=ExtResource("5_w4o7v")]
+position = Vector2(4080, 2184)
+
+[node name="CollisionPolygon2D" parent="Blocks/Block19" index="0"]
+polygon = PackedVector2Array(160, -448, 536, -360, 376, -264, 240, -336)
+
+[node name="Polygon2D" parent="Blocks/Block19" index="1"]
+texture = ExtResource("5_j286f")
+polygon = PackedVector2Array(160, -448, 536, -360, 376, -264, 240, -336)
+
+[node name="Block20" parent="Blocks" index="19" instance=ExtResource("5_w4o7v")]
+position = Vector2(3432, 2544)
+
+[node name="CollisionPolygon2D" parent="Blocks/Block20" index="0"]
+polygon = PackedVector2Array(136, -432, 488, -392, 408, -176, 144, -192)
+
+[node name="Polygon2D" parent="Blocks/Block20" index="1"]
+texture = ExtResource("5_j286f")
+polygon = PackedVector2Array(136, -432, 488, -392, 408, -176, 144, -192)
+
+[node name="Block21" parent="Blocks" index="20" instance=ExtResource("5_w4o7v")]
+position = Vector2(3968, 2696)
+
+[node name="CollisionPolygon2D" parent="Blocks/Block21" index="0"]
+polygon = PackedVector2Array(136, -432, 520, -424, 408, -176, 144, -192)
+
+[node name="Polygon2D" parent="Blocks/Block21" index="1"]
+texture = ExtResource("5_j286f")
+polygon = PackedVector2Array(136, -432, 520, -424, 408, -176, 144, -192)
+
+[node name="Block22" parent="Blocks" index="21" instance=ExtResource("5_w4o7v")]
+position = Vector2(4912, 2696)
+
+[node name="CollisionPolygon2D" parent="Blocks/Block22" index="0"]
+polygon = PackedVector2Array(464, -664, 1032, -664, 976, 384, 376, 416)
+
+[node name="Polygon2D" parent="Blocks/Block22" index="1"]
+texture = ExtResource("5_j286f")
+polygon = PackedVector2Array(464, -664, 1032, -664, 976, 384, 376, 416)
+
+[node name="Block23" parent="Blocks" index="22" instance=ExtResource("5_w4o7v")]
+position = Vector2(4952, 2624)
+
+[node name="CollisionPolygon2D" parent="Blocks/Block23" index="0"]
+polygon = PackedVector2Array(136, -432, 520, -424, 408, -176, 144, -192)
+
+[node name="Polygon2D" parent="Blocks/Block23" index="1"]
+texture = ExtResource("5_j286f")
+polygon = PackedVector2Array(136, -432, 520, -424, 408, -176, 144, -192)
+
+[node name="Block24" parent="Blocks" index="23" instance=ExtResource("5_w4o7v")]
+position = Vector2(5104, 2064)
+
+[node name="CollisionPolygon2D" parent="Blocks/Block24" index="0"]
+polygon = PackedVector2Array(464, -664, 880, -352, 904, 0, 536, 360)
+
+[node name="Polygon2D" parent="Blocks/Block24" index="1"]
+texture = ExtResource("5_j286f")
+polygon = PackedVector2Array(464, -664, 880, -352, 904, 0, 536, 360)
+
+[node name="Block25" parent="Blocks" index="24" instance=ExtResource("5_w4o7v")]
+position = Vector2(3656, -400)
+
+[node name="CollisionPolygon2D" parent="Blocks/Block25" index="0"]
+polygon = PackedVector2Array(-184, 472, 152, 496, 160, 808, -240, 728)
+
+[node name="Polygon2D" parent="Blocks/Block25" index="1"]
+texture = ExtResource("5_j286f")
+polygon = PackedVector2Array(-184, 472, 152, 496, 160, 808, -240, 728)
+
+[node name="Checkpoint" parent="Checkpoints" index="0" instance=ExtResource("7_tl0ye")]
+position = Vector2(3656, -200)
+
+[node name="PlayerSpawn" parent="Checkpoints/Checkpoint" index="1"]
+position = Vector2(0, 216)
+
+[node name="DeathPlane" parent="." index="5"]
+position = Vector2(2648, 2304)
+
+[node name="LevelTransition" parent="." index="6" instance=ExtResource("3_tl0ye")]
 position = Vector2(120, 392)
-scale = Vector2(-1.891705, 4.122118)
+rotation = 3.1415927
+scale = Vector2(1.891705, -4.122118)
 id = "A"
 levelPath = "res://game/world/levels/level_001.tscn"
+
+[node name="PlayerSpawn" parent="LevelTransition" index="4"]
+position = Vector2(25.373936, 50.4595)
+
+[node name="LevelTransition2" parent="." index="7" instance=ExtResource("3_tl0ye")]
+position = Vector2(5400, 2056)
+rotation = 1.5707964
+scale = Vector2(2.2037096, 3.496578)
+id = "B"
+levelPath = "res://game/world/levels/level_003.tscn"
+
+[node name="PlayerSpawn" parent="LevelTransition2" index="4"]
+position = Vector2(50.823368, 29.743294)
 
 [editable path="Blocks/Block"]
 [editable path="Blocks/Block2"]
 [editable path="Blocks/Block3"]
 [editable path="Blocks/Block4"]
 [editable path="Blocks/Block5"]
+[editable path="Blocks/Block6"]
+[editable path="Blocks/Block7"]
+[editable path="Blocks/Block8"]
+[editable path="Blocks/Block9"]
+[editable path="Blocks/Block10"]
+[editable path="Blocks/Block11"]
+[editable path="Blocks/Block12"]
+[editable path="Blocks/Block13"]
+[editable path="Blocks/Block14"]
+[editable path="Blocks/Block15"]
+[editable path="Blocks/Block16"]
+[editable path="Blocks/Block17"]
+[editable path="Blocks/Block18"]
+[editable path="Blocks/Block19"]
+[editable path="Blocks/Block20"]
+[editable path="Blocks/Block21"]
+[editable path="Blocks/Block22"]
+[editable path="Blocks/Block23"]
+[editable path="Blocks/Block24"]
+[editable path="Blocks/Block25"]
+[editable path="Checkpoints/Checkpoint"]
+[editable path="LevelTransition"]
+[editable path="LevelTransition2"]

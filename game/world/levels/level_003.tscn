@@ -1,0 +1,277 @@
+[gd_scene load_steps=13 format=3 uid="uid://dlg036xgpx6dw"]
+
+[ext_resource type="PackedScene" uid="uid://dtpqi5l5rqwti" path="res://game/world/logic/levelBase/level_base.tscn" id="1_0f50q"]
+[ext_resource type="Texture2D" uid="uid://biwqr2u8knxcp" path="res://objects/backgroundGradients/cave_deep.tres" id="2_o57ow"]
+[ext_resource type="PackedScene" uid="uid://bo1hyllxfs6ws" path="res://objects/shapes/block/block.tscn" id="3_88dco"]
+[ext_resource type="Texture2D" uid="uid://bqwmqqb8rom5l" path="res://objects/shapes/block/textures/block_cave_deep.tres" id="4_lxgib"]
+[ext_resource type="PackedScene" uid="uid://c44s8lam6fusd" path="res://game/world/logic/levelTransition/level_transition.tscn" id="5_04jvm"]
+[ext_resource type="PackedScene" uid="uid://bjepj4mn5dcnm" path="res://objects/shapes/block/breakable_block.tscn" id="5_lxgib"]
+[ext_resource type="PackedScene" uid="uid://bjd45kx5eme8w" path="res://objects/entity/enemies/Boss/boss.tscn" id="7_562wy"]
+[ext_resource type="PackedScene" uid="uid://dlujl64mv4q7c" path="res://game/checkpoint/checkpoint.tscn" id="8_04jvm"]
+[ext_resource type="PackedScene" uid="uid://b7xlq3qpk0tlm" path="res://game/world/logic/levelBase/player_spawn.tscn" id="10_04jvm"]
+[ext_resource type="PackedScene" uid="uid://bidfexcdw53os" path="res://game/world/death_plane.tscn" id="10_qcj6r"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lxgib"]
+size = Vector2(2971, 720)
+
+[sub_resource type="Curve2D" id="Curve2D_lxgib"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 1130.6932, -444.9355, 0, 0, 0, 0, 1776.6709, -363.9726, 0, 0, 0, 0, 1950.1116, -338.91266, 0, 0, 0, 0, 2038.6016, -429.51398, 0, 0, 0, 0, 2132.4011, -292.64813, 0, 0, 0, 0, 2481.0522, -261.8051, 0, 0, 0, 0, 2902.2651, -221.32368)
+}
+point_count = 7
+
+[node name="Level_003" node_paths=PackedStringArray("playerSpawn", "transitions") instance=ExtResource("1_0f50q")]
+playerSpawn = NodePath("PlayerSpawn")
+gradient = ExtResource("2_o57ow")
+transitions = [NodePath("LevelTransition")]
+
+[node name="Camera2D" parent="." index="0"]
+limit_left = -2864
+limit_top = -10000022
+limit_right = 10592
+limit_bottom = 912
+
+[node name="Block5" parent="Blocks" index="0" instance=ExtResource("3_88dco")]
+position = Vector2(-1656, 1224)
+
+[node name="CollisionPolygon2D" parent="Blocks/Block5" index="0"]
+polygon = PackedVector2Array(1752, -760, -880, -1120, -992, -304, 736, -136)
+
+[node name="Polygon2D" parent="Blocks/Block5" index="1"]
+texture = ExtResource("4_lxgib")
+polygon = PackedVector2Array(1752, -760, -880, -1120, -992, -304, 736, -136)
+
+[node name="Block" parent="Blocks" index="1" instance=ExtResource("3_88dco")]
+position = Vector2(824, -2056)
+
+[node name="CollisionPolygon2D" parent="Blocks/Block" index="0"]
+polygon = PackedVector2Array(-216, -440, 13960, 1000, 11192, 2248, -12, 824)
+
+[node name="Polygon2D" parent="Blocks/Block" index="1"]
+texture = ExtResource("4_lxgib")
+polygon = PackedVector2Array(-216, -440, 13960, 1000, 11192, 2248, -12, 824)
+
+[node name="Block2" parent="Blocks" index="2" instance=ExtResource("3_88dco")]
+position = Vector2(576, -2632)
+
+[node name="CollisionPolygon2D" parent="Blocks/Block2" index="0"]
+polygon = PackedVector2Array(-240, -152, 712, -384, 560, 384, -232, 152)
+
+[node name="Polygon2D" parent="Blocks/Block2" index="1"]
+texture = ExtResource("4_lxgib")
+polygon = PackedVector2Array(-240, -152, 712, -384, 560, 384, -232, 152)
+
+[node name="Block6" parent="Blocks" index="3" instance=ExtResource("3_88dco")]
+position = Vector2(2664, 936)
+
+[node name="CollisionPolygon2D" parent="Blocks/Block6" index="0"]
+polygon = PackedVector2Array(-112, -552, -16, -728, -56, -24, -80, -72)
+
+[node name="Polygon2D" parent="Blocks/Block6" index="1"]
+texture = ExtResource("4_lxgib")
+polygon = PackedVector2Array(-112, -552, -16, -728, -56, -24, -80, -72)
+
+[node name="Block3" parent="Blocks" index="4" instance=ExtResource("3_88dco")]
+position = Vector2(1256, -2464)
+
+[node name="CollisionPolygon2D" parent="Blocks/Block3" index="0"]
+polygon = PackedVector2Array(-1088, -624, 96, -640, -520, -232, -1136, -264)
+
+[node name="Polygon2D" parent="Blocks/Block3" index="1"]
+texture = ExtResource("4_lxgib")
+polygon = PackedVector2Array(-1088, -624, 96, -640, -520, -232, -1136, -264)
+
+[node name="Block4" parent="Blocks" index="5" instance=ExtResource("3_88dco")]
+position = Vector2(-640, -3328)
+
+[node name="CollisionPolygon2D" parent="Blocks/Block4" index="0"]
+polygon = PackedVector2Array(216, 248, 816, -24, 832, 744, 296, 736)
+
+[node name="Polygon2D" parent="Blocks/Block4" index="1"]
+texture = ExtResource("4_lxgib")
+polygon = PackedVector2Array(216, 248, 816, -24, 832, 744, 296, 736)
+
+[node name="Block7" parent="Blocks" index="6" instance=ExtResource("3_88dco")]
+position = Vector2(536, 1120)
+
+[node name="CollisionPolygon2D" parent="Blocks/Block7" index="0"]
+polygon = PackedVector2Array(-912, -568, 3672, -264, 3576, 224, -528, -144)
+
+[node name="Polygon2D" parent="Blocks/Block7" index="1"]
+texture = ExtResource("4_lxgib")
+polygon = PackedVector2Array(-912, -568, 3672, -264, 3576, 224, -528, -144)
+
+[node name="Block8" parent="Blocks" index="7" instance=ExtResource("3_88dco")]
+position = Vector2(-104, -296)
+
+[node name="CollisionPolygon2D" parent="Blocks/Block8" index="0"]
+polygon = PackedVector2Array(-896, -2576, 56, -2408, 176, -264, -256, -208)
+
+[node name="Polygon2D" parent="Blocks/Block8" index="1"]
+texture = ExtResource("4_lxgib")
+polygon = PackedVector2Array(-896, -2576, 56, -2408, 176, -264, -256, -208)
+
+[node name="BreakableBlock" parent="Blocks" index="8" instance=ExtResource("5_lxgib")]
+position = Vector2(-136, 136)
+delay = 6.0
+
+[node name="Block" parent="Blocks/BreakableBlock" index="0"]
+position = Vector2(-544, -152)
+
+[node name="CollisionPolygon2D" parent="Blocks/BreakableBlock/Block" index="0"]
+polygon = PackedVector2Array(216, -1440, 808, 288, 808, 609, -480, 720)
+
+[node name="Polygon2D" parent="Blocks/BreakableBlock/Block" index="1"]
+position = Vector2(0, 0)
+texture = ExtResource("4_lxgib")
+polygon = PackedVector2Array(216, -1440, 808, 288, 808, 609, -480, 720)
+
+[node name="Rumble" parent="Blocks/BreakableBlock" index="2"]
+attached = false
+volume = 1.3
+position = Vector2(312, 224)
+
+[node name="Trigger" parent="Blocks/BreakableBlock" index="3"]
+position = Vector2(1776, 1000)
+
+[node name="CollisionShape2D" parent="Blocks/BreakableBlock/Trigger" index="0"]
+position = Vector2(-440, -224)
+shape = SubResource("RectangleShape2D_lxgib")
+
+[node name="Block9" parent="Blocks" index="9" instance=ExtResource("3_88dco")]
+position = Vector2(-2712, -312)
+
+[node name="CollisionPolygon2D" parent="Blocks/Block9" index="0"]
+polygon = PackedVector2Array(600, -2000, 1128, -1040, 520, 696, -96, 648)
+
+[node name="Polygon2D" parent="Blocks/Block9" index="1"]
+texture = ExtResource("4_lxgib")
+polygon = PackedVector2Array(600, -2000, 1128, -1040, 520, 696, -96, 648)
+
+[node name="Block10" parent="Blocks" index="10" instance=ExtResource("3_88dco")]
+position = Vector2(-2352, -1184)
+
+[node name="CollisionPolygon2D" parent="Blocks/Block10" index="0"]
+polygon = PackedVector2Array(216, -768, 2000, -1056, 1984, 248, -96, 648)
+
+[node name="Polygon2D" parent="Blocks/Block10" index="1"]
+texture = ExtResource("4_lxgib")
+polygon = PackedVector2Array(216, -768, 2000, -1056, 1984, 248, -96, 648)
+
+[node name="Block11" parent="Blocks" index="11" instance=ExtResource("3_88dco")]
+position = Vector2(3184, 520)
+
+[node name="CollisionPolygon2D" parent="Blocks/Block11" index="0"]
+polygon = PackedVector2Array(-368, -1760, 152, -1744, 88, -96, -56, -200)
+
+[node name="Polygon2D" parent="Blocks/Block11" index="1"]
+texture = ExtResource("4_lxgib")
+polygon = PackedVector2Array(-368, -1760, 152, -1744, 88, -96, -56, -200)
+
+[node name="Block12" parent="Blocks" index="12" instance=ExtResource("3_88dco")]
+position = Vector2(5456, 1544)
+
+[node name="CollisionPolygon2D" parent="Blocks/Block12" index="0"]
+polygon = PackedVector2Array(-720, -592, 7752, 0, 8400, 1336, -696, 760)
+
+[node name="Polygon2D" parent="Blocks/Block12" index="1"]
+texture = ExtResource("4_lxgib")
+polygon = PackedVector2Array(-720, -592, 7752, 0, 8400, 1336, -696, 760)
+
+[node name="Block13" parent="Blocks" index="13" instance=ExtResource("3_88dco")]
+position = Vector2(7480, 1384)
+
+[node name="CollisionPolygon2D" parent="Blocks/Block13" index="0"]
+polygon = PackedVector2Array(-280, -1152, 1216, -744, 672, 176, -288, 64)
+
+[node name="Polygon2D" parent="Blocks/Block13" index="1"]
+texture = ExtResource("4_lxgib")
+polygon = PackedVector2Array(-280, -1152, 1216, -744, 672, 176, -288, 64)
+
+[node name="BossBlockers" type="Node2D" parent="." index="2"]
+
+[node name="EnemyBlocker1" type="StaticBody2D" parent="BossBlockers" index="0"]
+position = Vector2(2328, 464)
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BossBlockers/EnemyBlocker1" index="0"]
+polygon = PackedVector2Array(144, 104, 240, -104, 256, 320, -72, 280)
+
+[node name="EnemyBlocker2" type="StaticBody2D" parent="BossBlockers" index="1"]
+position = Vector2(2328, 464)
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BossBlockers/EnemyBlocker2" index="0"]
+position = Vector2(1840, 696)
+polygon = PackedVector2Array(344, -352, 648, -184, 680, 8, -72, -72, 32, -304)
+
+[node name="LevelTransition" parent="." index="3" instance=ExtResource("5_04jvm")]
+position = Vector2(336, -2592)
+rotation = -4.712389
+scale = Vector2(-2, 2.308)
+id = "B"
+levelPath = "res://game/world/levels/level_002.tscn"
+
+[node name="PlayerSpawn" parent="LevelTransition" index="4"]
+position = Vector2(35.999996, 38.128258)
+
+[node name="Checkpoint" parent="Checkpoints" index="0" instance=ExtResource("8_04jvm")]
+position = Vector2(512, -480)
+
+[node name="CollisionShape2D" parent="Checkpoints/Checkpoint" index="0"]
+position = Vector2(120, -61.75)
+
+[node name="DeathPlane" parent="." index="5"]
+position = Vector2(16, 2680)
+scale = Vector2(30.720003, 1)
+
+[node name="Boss" parent="." index="6" node_paths=PackedStringArray("path", "breakable") instance=ExtResource("7_562wy")]
+position = Vector2(-1768, -432)
+path = NodePath("../BossPath")
+breakable = NodePath("../Blocks/BreakableBlock")
+
+[node name="PlayerSpawn" parent="." index="7" instance=ExtResource("10_04jvm")]
+position = Vector2(280, -1784)
+
+[node name="BossPath" type="Path2D" parent="." index="8"]
+position = Vector2(-6543.05, 1766.5043)
+scale = Vector2(4.52028, 4.1500497)
+curve = SubResource("Curve2D_lxgib")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="BossPath" index="0"]
+position = Vector2(1130.6932, -444.9355)
+rotation = 0.12468373
+rotates = false
+loop = false
+
+[node name="ColorRect" type="ColorRect" parent="BossPath/PathFollow2D" index="0"]
+offset_left = -11.97475
+offset_top = -10.155745
+offset_right = 14.518476
+offset_bottom = 11.248516
+
+[node name="DeathPlane" parent="BossPath/PathFollow2D" index="1" instance=ExtResource("10_qcj6r")]
+position = Vector2(-658.06177, -41.859764)
+rotation = 1.5707964
+scale = Vector2(10, 1)
+
+[editable path="Blocks/Block5"]
+[editable path="Blocks/Block"]
+[editable path="Blocks/Block2"]
+[editable path="Blocks/Block6"]
+[editable path="Blocks/Block3"]
+[editable path="Blocks/Block4"]
+[editable path="Blocks/Block7"]
+[editable path="Blocks/Block8"]
+[editable path="Blocks/BreakableBlock"]
+[editable path="Blocks/BreakableBlock/Block"]
+[editable path="Blocks/Block9"]
+[editable path="Blocks/Block10"]
+[editable path="Blocks/Block11"]
+[editable path="Blocks/Block12"]
+[editable path="Blocks/Block13"]
+[editable path="LevelTransition"]
+[editable path="Checkpoints/Checkpoint"]
+[editable path="BossPath/PathFollow2D/DeathPlane"]
