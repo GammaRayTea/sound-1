@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="AudioFile" id="{cd0252d5-5cc8-44b0-ba09-fe8cffea42f8}">
+		<property name="assetPath">
+			<value>quiet_plop_8.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>0.54546485260770972</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{de3c3f1e-0cea-4544-9c98-f01c9e457095}</destination>
+		</relationship>
+	</object>
+</objects>

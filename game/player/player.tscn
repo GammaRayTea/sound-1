@@ -205,6 +205,13 @@ collision_mask = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Followers/InteractionBox" index="0"]
 shape = SubResource("CircleShape2D_a4w0n")
 
+[node name="ColorRect" type="ColorRect" parent="Followers/Plop" index="0"]
+visible = false
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+
 [node name="Impact" type="FmodEventEmitter2D" parent="Followers" index="6"]
 event_name = "event:/impact"
 event_guid = "{78914bba-b6f6-45f8-9008-0332ba41f836}"
@@ -216,7 +223,6 @@ fmod_parameters/impact_value/variant_type = 2
 event_name = "event:/falling"
 event_guid = "{fd7781db-059a-4a76-a049-62cb08d91582}"
 autoplay = true
-volume = 0.8
 fmod_parameters/falling_frequency/id = -6057347942199597962
 fmod_parameters/falling_frequency = 0.0
 fmod_parameters/falling_frequency/variant_type = 3

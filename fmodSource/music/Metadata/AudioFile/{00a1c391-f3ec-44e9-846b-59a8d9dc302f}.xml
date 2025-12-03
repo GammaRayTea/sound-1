@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="AudioFile" id="{00a1c391-f3ec-44e9-846b-59a8d9dc302f}">
+		<property name="assetPath">
+			<value>drumAndBass_Enemy.wav</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>56.296281179138319</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{de3c3f1e-0cea-4544-9c98-f01c9e457095}</destination>
+		</relationship>
+	</object>
+</objects>

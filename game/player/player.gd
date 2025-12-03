@@ -55,7 +55,7 @@ func determine_strong_impact() -> void:
 	if impactStrength > 400 and impactStrength > previousStrength:
 		play_impact(impactStrength)
 		previousStrength = impactStrength
-		impactCountDown = 5
+		impactCountDown = 3
 	
 	if impactCountDown >0:
 		impactCountDown-=1

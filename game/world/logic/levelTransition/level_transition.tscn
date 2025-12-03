@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://c44s8lam6fusd"]
+[gd_scene load_steps=9 format=3 uid="uid://c44s8lam6fusd"]
 
 [ext_resource type="Script" uid="uid://birvu7cnd2f7u" path="res://game/world/logic/levelTransition/level_transition.gd" id="1_1e17m"]
 [ext_resource type="PackedScene" uid="uid://b7xlq3qpk0tlm" path="res://game/world/logic/levelBase/player_spawn.tscn" id="2_g752d"]
@@ -8,6 +8,8 @@ size = Vector2(64, 64)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1e17m"]
 size = Vector2(64, 64)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_g752d"]
 
 [sub_resource type="Gradient" id="Gradient_agwxy"]
 interpolation_mode = 2
@@ -45,6 +47,13 @@ position = Vector2(32, 32)
 shape = SubResource("RectangleShape2D_1e17m")
 debug_color = Color(0.79751134, 0.42343736, 1.92523e-07, 0.41960785)
 metadata/_edit_group_ = true
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+z_index = -1
+offset_left = 64.0
+offset_right = 568.0
+offset_bottom = 64.0
+texture = SubResource("CanvasTexture_g752d")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 z_index = -1

@@ -9,7 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://dlujl64mv4q7c" path="res://game/checkpoint/checkpoint.tscn" id="7_tl0ye"]
 [ext_resource type="PackedScene" uid="uid://b7xlq3qpk0tlm" path="res://game/world/logic/levelBase/player_spawn.tscn" id="8_5grq2"]
 
-[node name="Level_002" node_paths=PackedStringArray("transitions") instance=ExtResource("1_nta4l")]
+[node name="Level_002" node_paths=PackedStringArray("playerSpawn", "transitions") instance=ExtResource("1_nta4l")]
+playerSpawn = NodePath("PlayerSpawn")
 gradient = ExtResource("2_nta4l")
 transitions = [NodePath("LevelTransition")]
 
@@ -26,11 +27,11 @@ position = Vector2(1400, 752)
 position = Vector2(3, 655)
 
 [node name="CollisionPolygon2D" parent="Blocks/Block" index="0"]
-polygon = PackedVector2Array(-185, -5, 413, -7, 301, 385, -139, 409)
+polygon = PackedVector2Array(-1298, 12, 413, -7, 301, 385, -139, 409)
 
 [node name="Polygon2D" parent="Blocks/Block" index="1"]
 texture = ExtResource("5_j286f")
-polygon = PackedVector2Array(-185, -5, 413, -7, 301, 385, -139, 409)
+polygon = PackedVector2Array(-1298, 12, 413, -7, 301, 385, -139, 409)
 
 [node name="Block2" parent="Blocks" index="1" instance=ExtResource("5_w4o7v")]
 position = Vector2(1804, 804)
@@ -66,11 +67,11 @@ polygon = PackedVector2Array(-700, 190, -42, 301, -145, 367, -671, 302)
 position = Vector2(-1013, -1381)
 
 [node name="CollisionPolygon2D" parent="Blocks/Block5" index="0"]
-polygon = PackedVector2Array(873, 1457, 1156, 1496, 1132, 1783, 916, 1778)
+polygon = PackedVector2Array(643, 136, 1617, 140, 1132, 1783, -321, 1798)
 
 [node name="Polygon2D" parent="Blocks/Block5" index="1"]
 texture = ExtResource("5_j286f")
-polygon = PackedVector2Array(873, 1457, 1156, 1496, 1132, 1783, 916, 1778)
+polygon = PackedVector2Array(643, 136, 1617, 140, 1132, 1783, -321, 1798)
 
 [node name="Block6" parent="Blocks" index="5" instance=ExtResource("5_w4o7v")]
 position = Vector2(2440, 296)
@@ -246,11 +247,11 @@ polygon = PackedVector2Array(464, -664, 1032, -664, 976, 384, 376, 416)
 position = Vector2(4952, 2624)
 
 [node name="CollisionPolygon2D" parent="Blocks/Block23" index="0"]
-polygon = PackedVector2Array(136, -432, 520, -424, 408, -176, 144, -192)
+polygon = PackedVector2Array(136, -432, 520, -424, 452, 700, 192, 734)
 
 [node name="Polygon2D" parent="Blocks/Block23" index="1"]
 texture = ExtResource("5_j286f")
-polygon = PackedVector2Array(136, -432, 520, -424, 408, -176, 144, -192)
+polygon = PackedVector2Array(136, -432, 520, -424, 452, 700, 192, 734)
 
 [node name="Block24" parent="Blocks" index="23" instance=ExtResource("5_w4o7v")]
 position = Vector2(5104, 2064)
@@ -280,6 +281,7 @@ position = Vector2(0, 216)
 
 [node name="DeathPlane" parent="." index="5"]
 position = Vector2(2648, 2304)
+scale = Vector2(2.0940793, 1)
 
 [node name="LevelTransition" parent="." index="6" instance=ExtResource("3_tl0ye")]
 position = Vector2(120, 392)
@@ -288,7 +290,7 @@ scale = Vector2(1.891705, -4.122118)
 id = "A"
 levelPath = "res://game/world/levels/level_001.tscn"
 
-[node name="PlayerSpawn" parent="LevelTransition" index="4"]
+[node name="PlayerSpawn" parent="LevelTransition" index="5"]
 position = Vector2(25.373936, 50.4595)
 
 [node name="LevelTransition2" parent="." index="7" instance=ExtResource("3_tl0ye")]
@@ -298,7 +300,7 @@ scale = Vector2(2.2037096, 3.496578)
 id = "B"
 levelPath = "res://game/world/levels/level_003.tscn"
 
-[node name="PlayerSpawn" parent="LevelTransition2" index="4"]
+[node name="PlayerSpawn" parent="LevelTransition2" index="5"]
 position = Vector2(50.823368, 29.743294)
 
 [node name="PlayerSpawn" parent="." index="8" instance=ExtResource("8_5grq2")]

@@ -4,6 +4,7 @@ class_name BreakableBlock extends Node2D
 @export var delay:float
 signal broken
 func reset():
+	delay-= delay*0.9
 	animPlayer.stop()
 	$Trigger.set_deferred("monitoring", true)
 	$Rumble["fmod_parameters/rumble_advance"] = "loop"

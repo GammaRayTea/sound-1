@@ -454,9 +454,8 @@ modifications/54 = SubResource("SkeletonModification2DLookAt_1x4pr")
 resource_local_to_scene = true
 size = Vector2(36, 36)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_3bfs4"]
-resource_local_to_scene = true
-radius = 456.2806
+[sub_resource type="CircleShape2D" id="CircleShape2D_j8dd2"]
+radius = 361.3544
 
 [node name="Boss" instance=ExtResource("1_sydff")]
 script = ExtResource("2_e7prj")
@@ -634,7 +633,7 @@ metadata/_local_pose_override_enabled_ = true
 [node name="Bone-14" type="Bone2D" parent="Body/Skeleton2D" index="14"]
 position = Vector2(182.75815, 67.57097)
 rotation = 1.5347531
-scale = Vector2(0.99999976, 0.99999976)
+scale = Vector2(0.9999994, 0.9999994)
 rest = Transform2D(0.03603544, 0.9993505, -0.9993505, 0.03603544, 182.75815, 67.57097)
 auto_calculate_length_and_angle = false
 length = 100.0
@@ -687,7 +686,7 @@ metadata/_local_pose_override_enabled_ = true
 [node name="Bone-18" type="Bone2D" parent="Body/Skeleton2D" index="18"]
 position = Vector2(191.25763, 258.60846)
 rotation = 1.5531476
-scale = Vector2(0.99999976, 0.99999976)
+scale = Vector2(0.9999994, 0.9999994)
 rest = Transform2D(0.017647857, 0.99984425, -0.99984425, 0.017647857, 191.25763, 258.60846)
 auto_calculate_length_and_angle = false
 length = 100.0
@@ -740,7 +739,7 @@ metadata/_local_pose_override_enabled_ = true
 [node name="Bone-22" type="Bone2D" parent="Body/Skeleton2D" index="22"]
 position = Vector2(188.17776, 436.74036)
 rotation = 1.6144683
-scale = Vector2(0.99999976, 0.99999976)
+scale = Vector2(0.9999994, 0.9999994)
 rest = Transform2D(-0.04365813, 0.9990465, -0.9990465, -0.04365813, 188.17776, 436.74036)
 auto_calculate_length_and_angle = false
 length = 100.0
@@ -4253,7 +4252,20 @@ position = Vector2(240, 288)
 position = Vector2(-272, 288)
 
 [node name="HurtBox" parent="Followers" index="2"]
-damage = 50.0
+damage = 100.0
 
 [node name="CollisionShape2D" parent="Followers/HurtBox" index="0"]
-shape = SubResource("CircleShape2D_3bfs4")
+shape = SubResource("CircleShape2D_j8dd2")
+
+[node name="Bass" type="FmodEventEmitter2D" parent="Followers" index="4"]
+event_name = "event:/bossBass"
+event_guid = "{8df8eeb1-61d7-4ab4-91da-dd58ceff5899}"
+fmod_parameters/stop/id = -2702923532274010476
+fmod_parameters/stop = "false"
+fmod_parameters/stop/labels = PackedStringArray("false", "true")
+fmod_parameters/stop/variant_type = 4
+
+[node name="Squelch" type="FmodEventEmitter2D" parent="Followers" index="5"]
+event_name = "event:/bossSquelch"
+event_guid = "{f0575257-8954-4c00-9ecb-95d563aee1a1}"
+autoplay = true

@@ -65,8 +65,9 @@ size = Vector2(36, 36)
 [sub_resource type="CircleShape2D" id="CircleShape2D_b6lpc"]
 radius = 32.06244
 
-[node name="EnemyCircle" instance=ExtResource("1_4k1te")]
+[node name="EnemyCircle" node_paths=PackedStringArray("visNotif") instance=ExtResource("1_4k1te")]
 script = ExtResource("2_b6lpc")
+visNotif = NodePath("Followers/VisibleOnScreenNotifier2D")
 packedStrategies = Array[PackedScene]([ExtResource("3_rh4ee")])
 
 [node name="Body" parent="." index="0"]
@@ -123,6 +124,10 @@ damage = 30.0
 [node name="CollisionShape2D" parent="Followers/HurtBox" index="0"]
 shape = SubResource("CircleShape2D_b6lpc")
 
-[node name="FmodEventEmitter2D" type="FmodEventEmitter2D" parent="Followers" index="4"]
-event_name = "event:/wind"
-event_guid = "{71477e54-9499-4aae-9d1d-edd0e8dfbc61}"
+[node name="Bass" type="FmodEventEmitter2D" parent="Followers" index="4"]
+event_name = "event:/enemyBass"
+event_guid = "{1b8af3a9-b6ee-40d3-9add-37da88cff3c3}"
+autoplay = true
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="Followers" index="5"]
+rect = Rect2(-32, -32, 64, 64)

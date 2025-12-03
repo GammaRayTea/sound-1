@@ -5,8 +5,11 @@ static var tracks:Dictionary = {
 	drums = "fmod_parameters/fade_drums",
 	rhodes = "fmod_parameters/fade_rhodes",
 	pad = "fmod_parameters/fade_pad",
-	melody = "fmod_parameters/fade_melody"
+	melody = "fmod_parameters/fade_melody",
+	boss = "fmod_parameters/fade_boss"
 }
+
+var boss_active:bool = false
 func enable_track(key:String)->void:
 	self[key] = 1
 
@@ -15,24 +18,33 @@ func disable_track(key:String)->void:
 	self[key] = 0
 
 func enemy_entered()->void:
-	
-	enable_track(tracks.kick)
-	enable_track(tracks.melody)
+	if !boss_active:
+
+		enable_track(tracks.kick)
+		enable_track(tracks.melody)
 	
 func enemy_exited()->void:
-	disable_track(tracks.kick)
-	disable_track(tracks.melody)
+	print("exited")
+
+	if !boss_active:
+		disable_track(tracks.kick)
+		disable_track(tracks.melody)
 	
 	
 
 func boss_entered() -> void:
-	enable_track(tracks.rhodes)
-	enable_track(tracks.drums)
-	enable_track(tracks.kick)
-	enable_track(tracks.melody)
+	self["fmod_parameters/State"] = "Fill"
+	boss_active = true
+	volume = 1.0
 	
+func boss_started() -> void: 
+
+	self["fmod_parameters/State"] = "Normal"
 func boss_exited()->void:
+	boss_active = false
+	disable_track(tracks.boss)
 	disable_track(tracks.rhodes)
-	disable_track(tracks.drums)
+	self[tracks.drums] = 0
 	disable_track(tracks.kick)
 	disable_track(tracks.melody)
+	disable_track(tracks.pad)
