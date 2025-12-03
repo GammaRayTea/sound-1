@@ -496,6 +496,7 @@ rotates = false
 loop = false
 
 [node name="ColorRect" type="ColorRect" parent="BossPath/PathFollow2D" index="0"]
+visible = false
 offset_left = -11.97475
 offset_top = -10.155745
 offset_right = 14.518476
