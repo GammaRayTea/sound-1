@@ -367,7 +367,7 @@ position = Vector2(0, -172.5)
 position = Vector2(0, 72)
 
 [node name="DeathPlane" parent="." index="8"]
-position = Vector2(9208, -1963)
+position = Vector2(10410.001, -1884)
 scale = Vector2(1.3199978, 1)
 
 [editable path="Blocks/Block"]
